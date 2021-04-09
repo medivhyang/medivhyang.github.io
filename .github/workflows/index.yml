@@ -1,10 +1,11 @@
-name: Deploy                      # Actions 显示的名字，随意设置
+ # Actions 显示的名字，随意设置
+name: Deploy                     
 
-on: [push]                        # 监听到 push 事件后触发
+# 监听到 push 事件后触发
+on: [push]           
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     # 拉取当前执行 Actions 仓库的指定分支
@@ -24,7 +25,7 @@ jobs:
     - name: Setup Node        
       uses: actions/setup-node@v1
       with:
-        node-version: "10.x"
+        node-version: "15.x"
 
     # 安装 Hexo 依赖并且生成静态文件
     - name: Hexo Generate

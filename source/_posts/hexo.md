@@ -49,7 +49,7 @@ theme: xxx
 language: zh-CN  
 ```
 
-## 部署
+## 一键部署
 
 1、安装 hexo-deployer-git。
 
@@ -72,5 +72,73 @@ deploy:
 ```bash
  hexo clean && hexo deploy
 ```
+
+## 自动部署
+
+利用 Github Action 实现。在项目下新建 '.github/workflows/index.yml' 文件，内容如下：
+
+```yaml
+ # Actions 显示的名字，随意设置
+name: Deploy                     
+
+# 监听到 push 事件后触发
+on: [push]           
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    # 拉取当前执行 Actions 仓库的指定分支
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        ref: main
+
+    # 如果仓库有 submodule，在这里更新，没有则删掉此步骤
+    # - name: Update Submodule
+    #   run: |
+    #     git submodule init
+    #     git submodule update --remote
+
+    # 安装 Node 环境
+    - name: Setup Node        
+      uses: actions/setup-node@v1
+      with:
+        node-version: "15.x"
+
+    # 安装 Hexo 依赖并且生成静态文件
+    - name: Hexo Generate
+      run: |
+        rm -f .yarnclean
+        yarn --frozen-lockfile --ignore-engines --ignore-optional --non-interactive --silent --ignore-scripts --production=false
+        rm -rf ./public
+        yarn run hexo clean
+        yarn run hexo generate
+
+    # 部署步骤，这里以 hexo deploy 为例
+    - name: Hexo Deploy
+      env:
+        TZ: Asia/Shanghai
+        SSH_PRIVATE: ${{ secrets.HEXO_SSH_PRIVATE }}
+        GIT_NAME: YOUR_NAME
+        GIT_EMAIL: YOUR_EMAIL
+      run: |
+        mkdir -p ~/.ssh/
+        echo "$SSH_PRIVATE" | tr -d '\r' > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan github.com >> ~/.ssh/known_hosts
+        git config --global user.name "$GIT_NAME"
+        git config --global user.email "$GIT_EMAIL"
+        yarn run hexo clean
+        yarn run hexo deploy
+```
+
+需要修改的地方有：
+
+- YOUR_NAME：你 Git 提交显示的名字。
+- YOUR_EMAIL：你 Git 提交显示的邮箱。
+- HEXO_SSH_PRIVATE：Git 提交时所需的验证密钥，这需要在 Github 项目配置 Secrets 里添加。
+
 
 （完）
