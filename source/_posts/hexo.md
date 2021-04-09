@@ -13,12 +13,18 @@ tags:
 npm install hexo-cli -g
 ```
 
-初始化项目
+创建并初始化项目
 
 ```bash
 hexo init <folder>
 cd <folder>
 npm install
+```
+
+预览
+
+```
+hexo s
 ```
 
 ## 安装主题
