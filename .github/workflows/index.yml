@@ -1,0 +1,53 @@
+name: Deploy                      # Actions 显示的名字，随意设置
+
+on: [push]                        # 监听到 push 事件后触发
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    # 拉取当前执行 Actions 仓库的指定分支
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        ref: main
+
+    # 如果仓库有 submodule，在这里更新，没有则删掉此步骤
+    # - name: Update Submodule
+    #   run: |
+    #     git submodule init
+    #     git submodule update --remote
+
+    # 安装 Node 环境
+    - name: Setup Node        
+      uses: actions/setup-node@v1
+      with:
+        node-version: "10.x"
+
+    # 安装 Hexo 依赖并且生成静态文件
+    - name: Hexo Generate
+      run: |
+        rm -f .yarnclean
+        yarn --frozen-lockfile --ignore-engines --ignore-optional --non-interactive --silent --ignore-scripts --production=false
+        rm -rf ./public
+        yarn run hexo clean
+        yarn run hexo generate
+
+    # 部署步骤，这里以 hexo deploy 为例
+    - name: Hexo Deploy
+      env:
+        TZ: Asia/Shanghai
+        SSH_PRIVATE: ${{ secrets.HEXO_SSH_PRIVATE }}
+        GIT_NAME: Medivh Yang
+        GIT_EMAIL: medivhyang@163.com
+      run: |
+        mkdir -p ~/.ssh/
+        echo "$SSH_PRIVATE" | tr -d '\r' > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan github.com >> ~/.ssh/known_hosts
+        git config --global user.name "$GIT_NAME"
+        git config --global user.email "$GIT_EMAIL"
+        yarn run hexo clean
+        yarn run hexo deploy
