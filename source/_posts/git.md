@@ -1,5 +1,5 @@
 ---
-title: Git 常用教程
+title: Git 简明教程
 date: 2021-03-12 17:43:59
 tags: Git
 ---
@@ -34,7 +34,6 @@ git push
 ```bash
 git log
 ```
-
 
 ## 分支管理
 

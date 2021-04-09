@@ -1,5 +1,5 @@
 ---
-title: MySQL 常用操作
+title: MySQL 简明教程
 date: 2021-03-18 10:49:43
 tags:
  - 数据库
