@@ -81,7 +81,7 @@ deploy:
 
 ## 自动部署
 
-利用 Github Action 实现。在项目下新建 '.github/workflows/index.yml' 文件，内容如下：
+利用 Github Action 实现。在项目下新建 “.github/workflows/index.yml” 文件，内容如下：
 
 ```yaml
  # Actions 显示的名字，随意设置
