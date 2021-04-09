@@ -27,7 +27,7 @@ make install
 
 ## 常见用法
 
-> 以 Windows 为例，Linux 类同。
+以 Windows 为例，Linux 类同。
 
 查看帮助文档
 
