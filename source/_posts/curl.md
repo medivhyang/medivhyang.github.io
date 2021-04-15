@@ -82,7 +82,7 @@ curl -c cookies.txt https://www.google.com
 `-d` 参数用于发送 POST 请求的数据体。
 
 ```bash
-curl -d'login=emma&password=123'-X POST https://google.com/login
+curl -d 'login=emma&password=123' -X POST https://google.com/login
 ```
 
 
