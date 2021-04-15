@@ -4,13 +4,13 @@ date: 2021-02-04 15:53:34
 tags: Vim
 ---
 
-[Vim](https://www.vim.org/) 是一款高效率的文本编辑器，现与 [Emacs](https://baike.baidu.com/item/emacs/2044183) 平分秋色。
+[Vim](https://www.vim.org/) 是一款高效率的文本编辑器，与 [Emacs](https://baike.baidu.com/item/emacs/2044183) 并称两大神器。
 
 <!-- more -->
 
 ## 常用配置
 
-不管是 Vim 本身还是插件，所有配置方式都一样，都是在一个指定文件里添加同样的配置内容。以下是作者常用的配置项：
+不管是 Vim 本身还是插件，配置文件内容基本一致，无需改动。
 
 ```vim
 " 设置 jk 快键键
@@ -40,7 +40,7 @@ set shiftwidth=4
 set expandtab
 ```
 
-> `jk` 快捷键是作者个人的偏好，也有人选择 `jj`。
+> `jk` 快捷键是作者的偏好，也有人选择 `jj`。
 
 ## Vim
 
@@ -48,17 +48,17 @@ Vim 同时支持 Linux 和 Windows 下的使用。
 
 Linux
 
-- 一般系统自带，如果没有，可以通过包管理便捷安装。
-- 配置文件位置在： `/etc/vim/vimrc` 、 `/etc/vimrc`  或者 `~/.vimrc`。
+- 一般系统自带，如果没有，可以通过包管理安装。
+- 配置文件位置： `/etc/vim/vimrc` 、 `/etc/vimrc`  或者 `~/.vimrc`。
 
 Windows
 
 - 使用 GVim 软件，它是 Windows 下的 Vim 的图形界面版本。
 - GVim 下载地址：[https://www.vim.org/download.php#pc](https://www.vim.org/download.php#pc)
-- 配置文件位置在：`%HOMEPATH%/_vimrc`。
+- 配置文件位置：`%HOMEPATH%/_vimrc`。
 
 
-## JetBrains 和 IdeaVim 插件
+## JetBrains
 
 JetBrains 全家桶通过安装插件 [IdeaVim](http://plugins.jetbrains.com/plugin/164-ideavim) 支持 Vim 编辑模式。
 
@@ -70,9 +70,9 @@ JetBrains 全家桶通过安装插件 [IdeaVim](http://plugins.jetbrains.com/plu
 > 安装完插件或者修改配置后，记得重启 JetBrains 软件生效。
 
 
-## Visual Studio Code 和 Vim 插件
+## VSCode
 
-Visual Studio Code（缩写：VS Code） 通过安装插件 [Vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim) 支持 Vim 编辑模式。
+VSCode 通过安装插件 [Vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim) 支持 Vim 编辑模式。
 
 安装完成后，可在 [setting.json](https://code.visualstudio.com/docs/getstarted/settings) 文件中修改配置。例如，想要设立 `jk` 快捷键，则增加如下内容：
 
@@ -87,18 +87,15 @@ Visual Studio Code（缩写：VS Code） 通过安装插件 [Vim](https://market
 
 > 安装完插件或者修改配置后，记得重启 VSCode 软件生效。
 
-## Chrome 与 Vimium 插件
+## Chrome
 
 尽管你可能不信，浏览器也可以在安装 [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb) 插件下支持 Vim 部分操作模式。
 
 安装完插件后，可以在页面中按 `?` 快捷键查看 Vim 所有快捷键列表。
 
-
-## 总结
-
-Vim 可以跨平台使用。
-
 ## 参考链接
 
-- [Vim 官网](https://www.vim.org/)
 - [阮一峰的网络日志：Vim 配置入门](http://www.ruanyifeng.com/blog/2018/09/vimrc.html) 
+- [Vim 官网](https://www.vim.org/)
+
+(完)

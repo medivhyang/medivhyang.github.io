@@ -77,8 +77,10 @@ go env -w GOPRIVATE="bitbucket.org,*.bitbucket.org"
 - Windows：可选择 [TDM-GCC](https://jmeubank.github.io/tdm-gcc/)  安装。
 
 
-## 总结
+## 小结
 
 - Go 语言国内下载安装地址：[https://golang.google.cn/dl/](https://golang.google.cn/dl/)。
 - Go 语言常修改的环境变量有 `GOPATH`、`GOPROXY` 和 `GOPRIVATE`。
 - 如果使用 `Sqlite` 驱动包，还需额外安装 `GCC`。
+
+（完）

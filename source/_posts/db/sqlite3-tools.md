@@ -6,7 +6,7 @@ tags:
  - Sqlite3
 ---
 
-SQLite3 命令行工具可以在终端执行所有常见的 SQL 操作，而且可以很方便的导入和导出数据。
+SQLite3 命令行工具可以在终端执行所有常见的 SQL 操作，而且还可以执行导入导出数据等操作。
 
 <!-- more -->
 
@@ -70,11 +70,8 @@ sqlite> select * from foo;
 | .separator STRING | 改变输出模式和 .import 所使用的分隔符。 |
 | .nullvalue STRING | 在 NULL 值的地方输出 STRING 字符串。 |
 
-## 小结
-
-- 下载地址：https://www.sqlite.org/download.html 
-- 查看帮助文档了解更多细节使用。
-
 ## 参考链接
 
 - [SQLite 命令 - 菜鸟教程](https://www.runoob.com/sqlite/sqlite-commands.html)
+
+（完）
