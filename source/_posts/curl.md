@@ -13,8 +13,8 @@ tags:
 | -b, --cookie <data\|filename> | 添加 cookie                                            |
 | -c, --cookie-jar <filename>   | 将服务端 cookies 写入文件                              |
 | -d, --data <data>             | HTTP POST 数据                                         |
-| --data-urlencode <data>       | 等同于 `-d`，区别在于会自动将发送的数据进行 URL 编码。 |
-| -e --referer <URL>            | 设置请求来源，既标头`Referer`                          |
+| --data-urlencode <data>       | 等同于 `-d`，区别在于会自动将发送的数据进行 URL 编码 |
+| -e --referer <URL>            | 设置请求来源，既标头 `Referer`                          |
 | -F, --form <name=content>     | 上传 multipart MIME 数据                               |
 | -H, --header <header/@file>   | 添加头部                                               |
 | -i, --include                 | 同时显示 HTTP 响应头部信息                             |
