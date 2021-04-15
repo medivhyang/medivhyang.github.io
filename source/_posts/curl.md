@@ -39,7 +39,7 @@ tags:
 curl -A 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36' https://google.com
 ```
 
-也可以通过-H参数直接指定标头，更改 `User-Agent` 。
+也可以通过 `-H` 参数直接指定标头，更改 `User-Agent` 。
 
 ```bash
 curl -H 'User-Agent: php/1.0' https://google.com
