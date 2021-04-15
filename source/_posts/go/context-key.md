@@ -72,40 +72,20 @@ func (c *valueCtx) Value(key interface{}) interface{} {
 }
 ```
 
-关键代码在 `func (c *valueCtx) Value(key interface{}) interface{}` 方法里，注意 `key` 参数类型是 `interface{}`，这意味执行接口比较。那什么是接口比较呢？
+关键代码在 `func (c *valueCtx) Value(key interface{}) interface{}` 方法里，注意 `key` 参数类型是 `interface{}`，这意味执行接口比较，接口比较规则如下：
 
-先来看个题：
+- 比较动态类型和动态值。
+- 如果动态类型不可比较，则会 panic。
 
-```go
-type myInt int
+所以，如果只要类型不一致，比较就永远不会相等。
 
-var (
-    i  myInt       = 9
-    i2 interface{} = myInt(9)
-)
-
-fmt.Println(i == 9)
-fmt.Println(i2 == 9)
-```
-
-答案是：
-
-```
-true
-false
-```
-
-这里需要掌握的知识点是：
-
-> 两个接口值相等仅当它们都是 `nil` 值，或者它们的动态类型相同并且动态值相等。
-
-所以最终解释是：`i2` 变量的动态类型是 `myInt` 类型，与字面量 `9` 的 `int` 类型不相等。
 
 ## 最佳实践
-
 
 > Use context Values only for request-scoped data that transits processes and APIs, not for passing optional parameters to functions.
 
 译文：
 
 > 仅将上下文值用于传递流程和 API 请求范围的数据，而不用于将可选参数传递给函数。
+
+（完）
