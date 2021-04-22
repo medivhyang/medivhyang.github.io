@@ -213,7 +213,6 @@ func printMarkdown(unit float64, data [][]float64, width int, precision int) {
 		fmt.Println("|")
 	}
 }
-
 ```
 
 
