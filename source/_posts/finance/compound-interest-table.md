@@ -177,7 +177,7 @@ func hadamard(d1, d2 [][]float64) [][]float64 {
 	for i := 0; i < len(d1); i++ {
 		result = append(result, []float64{})
 		for j := 0; j < len(d1[i]); j++ {
-			if len(d2) <= i || len(d2[j]) <= j {
+			if len(d2) <= i || len(d2[i]) <= j {
 				panic("require equal number of rows and columns")
 			}
 			result[i] = append(result[i], d1[i][j]*d2[i][j])
