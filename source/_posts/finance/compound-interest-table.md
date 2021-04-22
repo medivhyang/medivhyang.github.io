@@ -91,22 +91,18 @@ import (
 )
 
 func main() {
-	printMarkdown(0.01, calc(1, 0.01, 20, 30, true), 6, 2)
+	printMarkdown(0.01, calc(1, 0.01, 30, 30), 6, 2)
 	fmt.Println()
-	printMarkdown(0.01, calc(1, 0.01, 20, 30, false), 6, 2)
+	printMarkdown(-0.01, calc(1, -0.01, 30, 30), 6, 2)
 }
 
-func calc(origin float64, unit float64, count int, rounds int, negative bool) [][]float64 {
+func calc(origin float64, unit float64, count int, rounds int) [][]float64 {
 	var data [][]float64
 	for r := 0; r < rounds; r++ {
 		data = append(data, []float64{})
 		rate := 0.0
 		for i := 0; i < count; i++ {
-			if negative {
-				rate = 1 + unit*(float64(i)+1)
-			} else {
-				rate = 1 - unit*(float64(i)+1)
-			}
+			rate = 1 + unit*(float64(i)+1)
 			data[r] = append(data[r], origin*math.Pow(rate, float64(r+1)))
 		}
 	}
