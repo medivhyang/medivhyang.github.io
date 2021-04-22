@@ -220,7 +220,7 @@ func printMarkdown(unit float64, data [][]float64, width int, precision int) {
 ## 参考链接
 
 - [阿达玛乘积 (矩阵) - 维基百科，自由的百科全书](https://zh.wikipedia.org/wiki/%E9%98%BF%E9%81%94%E7%91%AA%E4%B9%98%E7%A9%8D_(%E7%9F%A9%E9%99%A3)) 
-[复利 - 维基百科，自由的百科全书](https://zh.wikipedia.org/wiki/%E5%A4%8D%E5%88%A9)
+- [复利 - 维基百科，自由的百科全书](https://zh.wikipedia.org/wiki/%E5%A4%8D%E5%88%A9)
 
 
 （完）
