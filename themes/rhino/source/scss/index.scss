@@ -625,7 +625,6 @@ table {
             }
             .post-item-title {
               font-size: $post-title-size;
-              font-weight: bold;
               font-style: normal;
               margin-bottom: 10px;
               line-height: 1.5em;
@@ -772,7 +771,7 @@ table {
       .post-title {
         padding: 80px 35px 30px 35px;
         font-size: $post-title-size;
-        font-weight: bolder;
+        font-weight: bold;
         font-style: normal;
         line-height: 1.5em;
         background: -moz-linear-gradient(
@@ -825,7 +824,7 @@ table {
       }
       .post-title {
         font-size: $post-title-size;
-        font-weight: bolder;
+        font-weight: bold;
         font-style: normal;
         line-height: 1.5em;
         .post-meta {
