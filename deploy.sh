@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# 预处理：删除零宽度字符
+sed -i "s/\xe2\x80\x8b/abc/g" ./source/_posts/*.md
+
 git status
 echo
 

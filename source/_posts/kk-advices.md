@@ -7,11 +7,11 @@ tags:
 > KK 全名 Kevin Kelly，《连线》（Wired）杂志创始主编，著有《失控》、《必然》和《科技想要什么》，俗称 KK 三部曲。我也算是 KK 的忠实粉丝，他的书非常值得推荐一看，相信你会获得不一样的感触。<br/>
 > 文章翻译转载自赵嘉敏，略作修改，原文可见底部链接，侵删。
 
-I have another birthday, and another bunch of unsolicited advice.
-​
-又一年生日（69 岁），又一堆碎碎念。
 
 ## 给年轻人的 99 条建议
+
+> I have another birthday, and another bunch of unsolicited advice.  abc<br />
+> 又一年生日（69 岁），又一堆碎碎念。
 
 
 1、That thing that made you weird as a kid could make you great as an adult — if you don't lose it.
@@ -696,7 +696,7 @@ I have another birthday, and another bunch of unsolicited advice.
 
 
 这些建议并非什么金科玉律。它们更像是帽子。如果戴着不合适，换一顶就是了。
-​
+abc
 
 ## 参考链接
 
@@ -704,5 +704,5 @@ I have another birthday, and another bunch of unsolicited advice.
 - [The Technium: 99 Additional Bits of Unsolicited Advice](https://kk.org/thetechnium/99-additional-bits-of-unsolicited-advice/)
 - [KK 在 69 岁生日时给出的 99 条建议](https://zhuanlan.zhihu.com/p/372580671)
 
-​
+abc
 （完）

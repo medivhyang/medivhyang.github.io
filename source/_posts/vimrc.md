@@ -1,13 +1,12 @@
 ---
 title: Vim 配置指南
 date: 2021-02-04 15:53:34
-tags: Vim
+tags: 
+  - Vim
 intro: "Vim 是一款高效率的文本编辑器，与 Emacs 并称两大神器。"
 ---
 
-[Vim](https://www.vim.org/) 是一款高效率的文本编辑器，与 [Emacs](https://baike.baidu.com/item/emacs/2044183) 并称两大神器。
-
-<!-- more -->
+> [Vim](https://www.vim.org/) 是一款高效率的文本编辑器，与 [Emacs](https://baike.baidu.com/item/emacs/2044183) 并称两大神器。
 
 ## 常用配置
 
@@ -96,7 +95,5 @@ VSCode 通过安装插件 [Vim](https://marketplace.visualstudio.com/items?itemN
 
 ## 参考链接
 
-- [阮一峰的网络日志：Vim 配置入门](http://www.ruanyifeng.com/blog/2018/09/vimrc.html) 
 - [Vim 官网](https://www.vim.org/)
-
-(完)
+- [阮一峰的网络日志：Vim 配置入门](http://www.ruanyifeng.com/blog/2018/09/vimrc.html) 
