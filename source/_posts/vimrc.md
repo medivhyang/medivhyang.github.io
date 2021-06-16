@@ -2,7 +2,7 @@
 title: Vim 配置指南
 date: 2021-02-04 15:53:34
 tags: 
-  - Vim
+  - 工具
 intro: "Vim 是一款高效率的文本编辑器，与 Emacs 并称两大神器。"
 ---
 

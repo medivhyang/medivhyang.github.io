@@ -3,12 +3,10 @@ title: MySQL 简明教程
 date: 2021-03-18 10:49:43
 tags:
  - 数据库
- - MySQL
+intro: "记录 MySQL 常用操作。"
 ---
 
-记录 MySQL 常用操作。
-
-<!-- more -->
+> 记录 MySQL 常用操作。
 
 ## 登录服务
 
@@ -417,5 +415,3 @@ lock_option:
 ## 参考链接
 
 - [MySQL 8.0 Reference Manual](https://dev.mysql.com/doc/refman/8.0/en/)
-
-（完）

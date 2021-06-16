@@ -2,14 +2,12 @@
 title: Jass 简明教程
 date: 2021-04-13 16:10:10
 tags:
-  - War3
+  - 游戏
+intro: "Jass（正确地说是 Jass 2）是魔兽3的程序语言，用于控制游戏和地图的进行，也是魔兽游戏和地图的基础。 "
 ---
 
-Jass（正确地说是 Jass 2）是魔兽3的程序语言，用于控制游戏和地图的进行，也是魔兽游戏和地图的基础。
-
-
-地图编辑器中摆放的单位（Unit），区域（Region）和触发（Trigger）等，最终都会被翻译成 Jass 语言存在地图文件里，在游戏时被使用。Jass 在语法结构上比较接近 Basic，同时也引用了许多 C 语言的东西。
-
+> Jass（正确地说是 Jass 2）是魔兽3的程序语言，用于控制游戏和地图的进行，也是魔兽游戏和地图的基础。<br />
+> 地图编辑器中摆放的单位（Unit），区域（Region）和触发（Trigger）等，最终都会被翻译成 Jass 语言存在地图文件里，在游戏时被使用。Jass 在语法结构上比较接近 Basic，同时也引用了许多 C 语言的东西。
 
 ## 基本语法
 
@@ -121,8 +119,6 @@ endlibrary
 
 ## 编辑器和插件
 
-- VSCode + jass（by 家貓hoo）：推荐！
-- Jass Shop Pro：没用过。
-- Jass Craft：没用过。
-
-（完）
+- VSCode + jass
+- Jass Shop Pro
+- Jass Craft

@@ -2,12 +2,11 @@
 title: Go 语言 Context Key 定义
 date: 2021-04-15 17:12:35
 tags:
-  - Go
+  - Go 语言
+intro: "Go 语言 Context 可以作为共享内存使用，最佳实践是对读写封装，防止被无意篡改。"
 ---
 
-Go 语言 Context 可以作为共享内存使用，最佳实践是外界只读不可写，防止被无意修改。
-
-<!-- more -->
+> Go 语言 Context 可以作为共享内存使用，最佳实践是对读写封装，防止被无意篡改。
 
 ## 思路
 
@@ -85,5 +84,3 @@ func (c *valueCtx) Value(key interface{}) interface{} {
 译文：
 
 > 仅将上下文值用于传递流程和 API 请求范围的数据，而不用于将可选参数传递给函数。
-
-（完）

@@ -3,11 +3,10 @@ title: Go 语言命名约定
 date: 2021-02-03 11:06:51
 tag: 
   - Go
+intro: "计算机科学只存在两个难题：缓存失效和命名。"
 ---
 
 > 计算机科学只存在两个难题：缓存失效和命名。
-
-<!-- more -->
 
 ## 名字很重要
 
@@ -70,5 +69,3 @@ tag:
 - [https://github.com/golang/go/wiki/CodeReviewComments](https://github.com/golang/go/wiki/CodeReviewComments)
 - [Style guideline for Go packages](https://rakyll.org/style-packages) (rakyll/JBD)
 - [Ashley McNamara + Brian Ketelsen: Go best practices](https://www.youtube.com/watch?v=MzTcsI6tn-0)
-
-（完）

@@ -2,12 +2,11 @@
 title: Curl 使用指南
 date: 2021-04-14 17:52:24
 tags:
-  - Bash
+  - 工具
+intro: "curl 是常用的命令行工具，用来请求 Web 服务器，它的名字就是客户端（client）的 URL 工具的意思。"
 ---
 
-curl 是常用的命令行工具，用来请求 Web 服务器。它的名字就是客户端（client）的 URL 工具的意思。
-
-<!-- more -->
+curl 是常用的命令行工具，用来请求 Web 服务器，它的名字就是客户端（client）的 URL 工具的意思。
 
 ## 参数
 
@@ -293,13 +292,9 @@ curl -X POST https://www.example.com
 curl -X DELETE https://www.example.com/1
 ```
 
-
 ## 参考链接 
 
 - [curl 命令详解~~ - 微风伏面 - 博客园](https://www.cnblogs.com/guixiaoming/p/8507268.html)
 - [curl 的用法指南 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2019/09/curl-reference.html)
 - [curl - Tutorial](https://curl.se/docs/manual.html)
 - [Curl Cookbook](https://catonmat.net/cookbooks/curl)
-
-
-（完）

@@ -3,13 +3,10 @@ title: SQLite3 命令行工具
 date: 2021-03-11 11:31:32
 tags: 
  - 数据库
- - Sqlite3
+intro: "SQLite3 命令行工具可以在终端执行所有常见的 SQL 操作，而且还可以执行导入导出数据等操作。"
 ---
 
-SQLite3 命令行工具可以在终端执行所有常见的 SQL 操作，而且还可以执行导入导出数据等操作。
-
-<!-- more -->
-
+> SQLite3 命令行工具可以在终端执行所有常见的 SQL 操作，而且还可以执行导入导出数据等操作。
 
 ## 下载安装
 
@@ -73,5 +70,3 @@ sqlite> select * from foo;
 ## 参考链接
 
 - [SQLite 命令 - 菜鸟教程](https://www.runoob.com/sqlite/sqlite-commands.html)
-
-（完）

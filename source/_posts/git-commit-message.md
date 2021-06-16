@@ -2,8 +2,8 @@
 title: Git Commit Message 规范
 date: 2021-04-14 16:50:50
 tags: 
-  - Git
-  - 规范
+  - 工具
+intro: "该规范提供了一组简单规则来创建清晰的提交历史，这更有利于编写自动化工具。"
 ---
 
 该规范提供了一组简单规则来创建清晰的提交历史，这更有利于编写自动化工具。
@@ -121,7 +121,3 @@ Closes #123, #245, #992
 - [Commit message 和 Change log 编写指南 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html)
 - [约定式提交](https://www.conventionalcommits.org/zh-hans/v1.0.0/)
 - [Git Commit Message Conventions - Google 文档](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#heading=h.greljkmo14y0)
-
-
-（完）
-

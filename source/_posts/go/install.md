@@ -3,12 +3,10 @@ title: Go 语言安装指南
 date: 2021-02-04 10:49:49
 tag: 
   - Go
+intro: "Go 语言支持跨平台开发和运行，包括 Windows、Mac 和 Linux 系统。"
 ---
 
-Go 语言支持跨平台开发和运行，包括 Windows、Mac 和 Linux 系统。
-
-<!-- more -->
-
+> Go 语言支持跨平台开发和运行，包括 Windows、Mac 和 Linux 系统。
 
 ## 下载安装
 
@@ -82,5 +80,3 @@ go env -w GOPRIVATE="bitbucket.org,*.bitbucket.org"
 - Go 语言国内下载安装地址：[https://golang.google.cn/dl/](https://golang.google.cn/dl/)。
 - Go 语言常修改的环境变量有 `GOPATH`、`GOPROXY` 和 `GOPRIVATE`。
 - 如果使用 `Sqlite` 驱动包，还需额外安装 `GCC`。
-
-（完）

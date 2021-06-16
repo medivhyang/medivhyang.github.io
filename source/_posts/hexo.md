@@ -2,7 +2,8 @@
 title: Hexo 简明教程
 date: 2021-04-09 15:45:07
 tags:
- - Hexo
+  - 工具
+intro: "手把手教你使用 Hexo 从零开始搭建自己的网络博客。"
 ---
 
 ## 创建项目
@@ -142,9 +143,6 @@ jobs:
 
 需要修改的地方有：
 
-- YOUR_NAME：你 Git 提交显示的名字。
-- YOUR_EMAIL：你 Git 提交显示的邮箱。
-- HEXO_SSH_PRIVATE：Git 提交时所需的验证密钥，这需要在 Github 项目配置 Secrets 里添加。
-
-
-（完）
+- `YOUR_NAME`：你 Git 提交显示的名字。
+- `YOUR_EMAIL`：你 Git 提交显示的邮箱。
+- `HEXO_SSH_PRIVATE`：Git 提交时所需的验证密钥，这需要在 Github 项目配置 Secrets 里添加。

@@ -2,9 +2,11 @@
 title: KK 在 69 岁生日时给出的 99 条建议 
 date: 2021-05-28 10:12:49
 tags:
+  - 箴言
+intro: "KK 全名 Kevin Kelly，《连线》（Wired）杂志创始主编，著有《失控》、《必然》和《科技想要什么》，俗称 KK 三部曲。我也算是 KK 的忠实粉丝，他的书非常值得推荐一看，相信你会获得不一样的感触。"
 ---
 
-> KK 全名 Kevin Kelly，《连线》（Wired）杂志创始主编，著有《失控》、《必然》和《科技想要什么》，俗称 KK 三部曲。我也算是 KK 的忠实粉丝，他的书非常值得推荐一看，相信你会获得不一样的感触。<br/>
+> KK 全名 Kevin Kelly，《连线》（Wired）杂志创始主编，著有《失控》、《必然》和《科技想要什么》，俗称 KK 三部曲。我也算是 KK 的忠实粉丝，他的书非常值得推荐一看，相信你会获得不一样的感触。<br />
 > 文章翻译转载自赵嘉敏，略作修改，原文可见底部链接，侵删。
 
 
@@ -703,6 +705,3 @@ abc
 
 - [The Technium: 99 Additional Bits of Unsolicited Advice](https://kk.org/thetechnium/99-additional-bits-of-unsolicited-advice/)
 - [KK 在 69 岁生日时给出的 99 条建议](https://zhuanlan.zhihu.com/p/372580671)
-
-abc
-（完）
