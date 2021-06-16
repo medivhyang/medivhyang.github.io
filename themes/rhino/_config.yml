@@ -1,0 +1,13 @@
+sidebar_title: "Rhino"
+sidebar_subtitle: "不撞南墙<br/>怎知回头"
+
+truncate_len: 60
+
+rss: atom.xml
+archives: true
+tags: true
+
+# Choose the comment service according to your need.
+# Please do not use the two services at the same time.
+livere: # [data-uid] for livere.com
+disqus: # [short_name] for disqus.com

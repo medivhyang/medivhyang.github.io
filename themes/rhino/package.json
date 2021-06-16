@@ -1,0 +1,34 @@
+{
+  "name": "hexo-theme-rhino",
+  "version": "0.0.1",
+  "description": "a clean and text-based hexo theme.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run build",
+    "build": "node-sass source/scss/index.scss -o source/css --output-style compressed && postcss source/css/index.css -u autoprefixer -r",
+    "watch": "node-sass -w source/scss -o source/css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/medivhyang/hexo-theme-rhino"
+  },
+  "keywords": [
+    "hexo",
+    "theme",
+    "rhino"
+  ],
+  "author": "Medivh Yang (https://medivhyang.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/medivhyang/hexo-theme-rhino/issues"
+  },
+  "homepage": "https://github.com/medivhyang/hexo-theme-rhino/README.md",
+  "devDependencies": {},
+  "dependencies": {
+    "autoprefixer": "^9.2.0",
+    "node-sass": "^4.14.1",
+    "postcss": "^7.0.5",
+    "postcss-cli": "^6.0.0",
+    "scss-compile": "^0.1.7"
+  }
+}
