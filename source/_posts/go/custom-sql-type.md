@@ -2,7 +2,7 @@
 title: Go 语言自定义 SQL 类型
 date: 2021-03-10 17:15:00
 tags:
-  - Go 语言
+  - Go
 intro: "Go 语言 `datebase/sql` 标准库可以自定义数据类型，实现数据库类型和 Go 语言类型的自动转换工作。"
 ---
 

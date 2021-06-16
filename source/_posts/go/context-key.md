@@ -2,7 +2,7 @@
 title: Go 语言 Context Key 定义
 date: 2021-04-15 17:12:35
 tags:
-  - Go 语言
+  - Go
 intro: "Go 语言 Context 可以作为共享内存使用，最佳实践是对读写封装，防止被无意篡改。"
 ---
 

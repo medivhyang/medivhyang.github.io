@@ -1,10 +1,10 @@
 <div ref="sideContainer" class="side-container">
     <a class="a-block nav-head <%= is_current('/') && 'active' %>" href="<%= config.root %>">
         <div class="nav-title">
-            <%- theme.sidebar_title ? theme.sidebar_title : config.title %>
+            <%- config.title %>
         </div>
         <div class="nav-subtitle">
-            <%- theme.sidebar_subtitle ? theme.sidebar_subtitle : config.subtitle %>
+            <%- config.description %>
         </div>
     </a>
 
