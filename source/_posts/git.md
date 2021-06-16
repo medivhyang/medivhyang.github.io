@@ -6,8 +6,6 @@ tags:
 intro: "Git是一个免费的开源分布式版本控制系统，旨在快速高效地处理从小型到大型项目的所有内容。"
 ---
 
-<!-- toc -->
-
 [Git](https://git-scm.com/) 是一个免费的开源分布式版本控制系统，旨在快速高效地处理从小型到大型项目的所有内容。
 
 
@@ -130,5 +128,3 @@ git rebase --continue
 - [Git](https://git-scm.com/)
 - [Git-工具-重置揭密](https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E9%87%8D%E7%BD%AE%E6%8F%AD%E5%AF%86)
 - [Git-工具-重写历史](https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E9%87%8D%E5%86%99%E5%8E%86%E5%8F%B2)
-
-（完）
