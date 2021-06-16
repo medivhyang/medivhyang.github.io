@@ -39,7 +39,7 @@ $single-column-nav-title-size: 28px;
 $single-column-nav-subtitle-size: 20px;
 $single-column-nav-link-size: 18px;
 $single-column-nav-footer-size: 13px;
-$single-column-post-title-size: 24px;
+$single-column-post-title-size: 27px;
 $single-column-post-summary-size: 16px;
 $single-column-post-body-size: 15px;
 $single-column-post-meta-size: 14px;
@@ -68,6 +68,7 @@ body {
 
 h1 {
   font-size: $h1;
+  font-weight: bold;
   margin: $h1 0;
 
   @media screen and (max-width: $single-column-max-width) {
@@ -78,6 +79,7 @@ h1 {
 
 h2 {
   font-size: $h1 - 1 * $h-diff;
+  font-weight: bold;
   margin: $h1 - 1 * $h-diff 0;
 
   @media screen and (max-width: $single-column-max-width) {
@@ -88,6 +90,7 @@ h2 {
 
 h3 {
   font-size: $h1 - 2 * $h-diff;
+  font-weight: bold;
   margin: $h1 - 2 * $h-diff 0;
 
   @media screen and (max-width: $single-column-max-width) {
@@ -98,6 +101,7 @@ h3 {
 
 h4 {
   font-size: $h1 - 3 * $h-diff;
+  font-weight: bold;
   margin: $h1 - 3 * $h-diff 0;
 
   @media screen and (max-width: $single-column-max-width) {
@@ -108,6 +112,7 @@ h4 {
 
 h5 {
   font-size: $h1 - 4 * $h-diff;
+  font-weight: bold;
   margin: $h1 - 4 * $h-diff 0;
 
   @media screen and (max-width: $single-column-max-width) {
@@ -118,6 +123,7 @@ h5 {
 
 h6 {
   font-size: $h1 - 5 * $h-diff;
+  font-weight: bold;
   margin: $h1 - 5 * $h-diff 0;
 
   @media screen and (max-width: $single-column-max-width) {
