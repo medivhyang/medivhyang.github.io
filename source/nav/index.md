@@ -3,11 +3,9 @@ title: 导航
 date: 2021-02-21 11:29:40
 layout: page
 ---
-
 ## 生活
-​
 
-**搜索**：[**百度**](https://www.baidu.com/) | [**谷歌**](https://www.google.com/) (墙) | [**Bing**](https://cn.bing.com/) | [DogeDoge](https://dogedoge.com/) | [DuckDuckGo](https://duckduckgo.com/) | [维基百科](https://www.wikipedia.org) 🌐 | [知乎](https://www.zhihu.com/explore) | [WikiHow](https://zh.wikihow.com/)
+**搜索**：[**百度**](https://www.baidu.com/) | [**谷歌 (墙)**](https://www.google.com/) | [**Bing**](https://cn.bing.com/) | [DogeDoge](https://dogedoge.com/) | [DuckDuckGo](https://duckduckgo.com/) | [维基百科](https://www.wikipedia.org) 🌐 | [知乎](https://www.zhihu.com/explore) | [WikiHow](https://zh.wikihow.com/)
 **翻译**：[**谷歌翻译**](https://translate.google.cn/) | [彩云翻译](https://fanyi.caiyunapp.com/#/) | [有道翻译](http://fanyi.youdao.com/) | [金山词霸](http://www.iciba.com/) | [DeepL](https://www.deepl.com/translator)
 **地图**：[谷歌地图](https://www.google.com/maps/) 🌐 | [**高德地图**](https://www.amap.com/) | [百度地图](https://map.baidu.com/)
 **购物**：[**天猫**](https://www.tmall.com/) | [**淘宝**](https://www.taobao.com/) | [**京东**](https://www.jd.com/) | [**网易严选**](http://you.163.com/) | [唯品会](https://www.vip.com/) | [宜家家居](https://www.ikea.cn/cn/zh/) | [asd 商品历史价格查询](http://asd-price.com/)
@@ -22,28 +20,22 @@ layout: page
 **微信**：[**微信公众号平台**](https://mp.weixin.qq.com/) | [微信 Markdown 编辑器](https://doocs.github.io/md/#/)
 **工具**：[数字帝国](https://zh.numberempire.com/) | [Desmos](https://www.desmos.com/calculator?lang=zh-CN)
 **Chrome 插件**：[yuque-helper](https://chrome.google.com/webstore/detail/yuque-helper/nkhfaopgdfgoedlecdnecpiindnkkpai)
-​
 
 ## 娱乐
-​
 
 **音乐**：[**网易云音乐**](https://music.163.com/) | [QQ 音乐](https://y.qq.com/) | [虾米音乐](https://www.xiami.com/) | [酷狗音乐](http://www.kugou.com/) | [Deepwork.fm](https://deepwork.fm/) | [I Miss My Bar](http://imissmybar.com/)
 **视频**：[哔哩哔哩](https://www.bilibili.com/) | [**腾讯视频**](https://v.qq.com/) | [**爱奇艺**](https://www.iqiyi.com/) | [优酷](https://youku.com/) | [YouTube (墙)  | ](https://www.youtube.com/)[影猫电影 ](http://www.mvcat.com/)
 **游戏**：[FUUN.FUN](https://fuun.fun/) | [台球游戏](http://www.heyzxz.me/pcol/)
 **钢琴**：[弹琴吧](http://www.tan8.com/) | [环球钢琴网](https://www.hqgq.com/) | [AutoPiano.cn](https://www.autopiano.cn/)
-**奇趣**：[Sharkle](https://sharkle.com/) | [口红颜色可视化](zhangwenli.com/lipstick/) | [Gopherize.me](https://gopherize.me/) | [SkylineWebcams](https://www.skylinewebcams.com/)
-​
+**奇趣**：[Sharkle](https://sharkle.com/) | [口红颜色可视化](zhangwenli.com/lipstick/) | [Gopherize.me](https://gopherize.me/) | [SkylineWebcams](https://www.skylinewebcams.com/) 
 
 ## 平面
-​
 
 **图库**：[**Unsplash**](https://unsplash.com/) | [Canva](https://www.canva.com/photos/free/) | [Pexels](https://www.pexels.com/) | [花瓣](https://huaban.com/) | [Magdeleine](https://magdeleine.co/) | [500px](https://500px.com/) | [Flickr](https://www.flickr.com/)| [Gratisography](https://gratisography.com/) | [picjumbo](https://picjumbo.com/) | [Foter](https://foter.com/) | [别样网](https://www.ssyer.com/) | [visualhunt](https://visualhunt.com/)| [Streetwill](http://www.streetwill.co/) | [IM Free](http://imcreator.com/free) | [pngimg](http://pngimg.com/) | [Life of Pix](https://www.lifeofpix.com/) | [Foodiesfeed](https://www.foodiesfeed.com/)| [kaboompics](https://kaboompics.com/)|[New Old Stock](https://nos.twnsnd.co/)| [Public Domain Archive](http://publicdomainarchive.com/) | [StockSnap](https://stocksnap.io/) | [Skuawk](http://skuawk.com/) | [DesignerPics](http://www.designerspics.com/) | [ISO Republic](https://isorepublic.com/) |[無料写真素材](http://freephoto.bizutart.com/)| [Fancycrave](http://fancycrave.com/) | [Canva 免费版权照片](https://www.canva.com/photos/free/) | [reshot](https://www.reshot.com/) | [rawpixel](https://www.rawpixel.com/) | [Morguefile](https://morguefile.com/) | [pxhere](https://pxhere.com/) | [泼辣有图](http://www.polayoutu.com/) |[吉卜力工作室壁纸](http://www.ghibli.jp/info/013251/) | [P 站可访问版](https://pixivic.com/) | [**Wallhaven**](https://wallhaven.cc/) | [Yande.re](https://yande.re/)
 **编辑**：[**Excalidraw**](https://excalidraw.com/) | [**Draw.io**](https://www.draw.io) | [yEd](https://www.yworks.com/downloads) | [Sketchviz](https://sketchviz.com/new) | [Canva](https://www.canva.cn/) | [Webgraphviz](http://www.webgraphviz.com/) | [Graphviz Online](http://dreampuf.github.io/GraphvizOnline/) | [Krita](https://krita.org/zh/) | [xp-paint](https://chowderman.github.io/xp-paint.html) | [Dokc.Photo](https://doka.photo/) | [**Carbon**](https://carbon.now.sh/)
 **压缩**：[**TinyPNG**](https://tinypng.com/) | [Squoosh](https://squoosh.app/)
-​
 
 ## 编程
-​
 
 **代码**：[**GitHub**](https://github.com) | [GitLab](https://gitlab.com) | [Gitee](https://gitee.com) | [CODING](https://coding.net)
 **社区**：[**StackOverflow**](https://stackoverflow.com) | [**InfoQ**](https://www.infoq.cn) | [掘金](https://juejin.cn/) | [Segmentfault](https://segmentfault.com/)
@@ -59,10 +51,8 @@ layout: page
 **在线工具**：[345Tool](https://www.345tool.com/zh-hans) | [Tool.lu](https://tool.lu/) | [时间戳转换](https://tool.lu/timestamp/) | [**JSON.cn**](https://json.cn/) | [**Regexper**](https://regexper.com/) | [**RegExr**](https://regexr.com/) | [Regex101](https://regex101.com/) | [Coding Fonts](https://coding-fonts.css-tricks.com/) | [FeHelper](https://www.baidufe.com/fehelper/index/index.html)
 **Chrome 插件**：[FeHelper](https://chrome.google.com/webstore/detail/fehelper%E5%89%8D%E7%AB%AF%E5%8A%A9%E6%89%8B/pkgccpejnmalmdinmhkkfafefagiiiad)
 **刷题**：[力扣](https://leetcode-cn.com/problemset/all/)
-​
 
 ## 软件
-​
 
 **操作系统**：[Windows 10](https://www.microsoft.com/zh-cn/software-download/windows10) | [DistroWatch | Mint](https://distrowatch.com/dwres.php?resource=popularity) | [Fedora](https://getfedora.org/en/workstation/download/) | [Deepin](https://www.deepin.org/download/) | [Centos](https://www.centos.org/download/)
 **启动盘**：[Windows USB/DVD Download Tool](https://www.microsoft.com/en-us/download/details.aspx?id=56485) | [Rufus](https://rufus.ie/) | [Etcher](https://etcher.io/)
@@ -87,10 +77,8 @@ layout: page
 **HTTP 调试**：[Postman](https://www.getpostman.com/)
 **SSH**：[Putty](https://www.putty.org/)
 **代理**：[Shadowsocks](https://github.com/shadowsocks/shadowsocks/tree/master)
-**虚拟机**：[VMware Workstation Pro](https://www.vmware.com/cn/products/workstation-pro/workstation-pro-evaluation.html) | [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
-​
+**虚拟机**：[VMware Workstation Pro](https://www.vmware.com/cn/products/workstation-pro/workstation-pro-evaluation.html) | [VirtualBox](https://www.virtualbox.org/wiki/Downloads) 
 
 ## 导航
-​
 
 [猫爪导航](https://www.v2fy.com/) | [极客导航](https://geekdocs.cn/) | [比格张](https://bigezhang.com/website/list) | [老司机导航](https://www.giffox.com/) | [偷渡鱼](https://touduyu.com/) | [掌酷导航](https://www.zkdh.net/about) | [炫猿](https://xydh.fun/) | [创造狮导航](http://www.chuangzaoshi.com/) | [PICKFREE](http://www.pickfree.cn/) | [Seeseed](https://www.seeseed.com/) | [考拉新媒体导航](https://www.kaolamedia.com/) | [口袋运营](https://www.koudaiyunying.com/)

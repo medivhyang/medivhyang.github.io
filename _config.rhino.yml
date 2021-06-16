@@ -1,0 +1,11 @@
+sidebar_title: "Medivh Yang 的博客"
+sidebar_subtitle: "不撞南墙 怎知回头"
+
+truncate_len: 60
+
+rss: 
+
+# Choose the comment service according to your need.
+# Please do not use the two services at the same time.
+livere: # [data-uid] for livere.com
+disqus: # [short_name] for disqus.com

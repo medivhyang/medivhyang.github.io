@@ -4,28 +4,22 @@ date: 2021-05-28 10:12:49
 tags:
 ---
 
-KK 全名 Kevin Kelly，《连线》（Wired）杂志创始主编，著有《失控》、《必然》和《科技想要什么》，俗称 KK 三部曲。我也算是 KK 的忠实粉丝，他的书非常值得推荐一看，相信你会获得不一样的感触。
-
-文章翻译转载自赵嘉敏，略作修改，原文可见底部链接，侵删。
-
+> KK 全名 Kevin Kelly，《连线》（Wired）杂志创始主编，著有《失控》、《必然》和《科技想要什么》，俗称 KK 三部曲。我也算是 KK 的忠实粉丝，他的书非常值得推荐一看，相信你会获得不一样的感触。<br/>
+> 文章翻译转载自赵嘉敏，略作修改，原文可见底部链接，侵删。
 
 I have another birthday, and another bunch of unsolicited advice.
 ​
-
 又一年生日（69 岁），又一堆碎碎念。
-​
 
 ## 给年轻人的 99 条建议
 
 
 1、That thing that made you weird as a kid could make you great as an adult — if you don't lose it.
 
-
 儿时让你显得出格的事情会让你成年后与众不同——只要你还没有丢掉它。
 
 
 > 赵嘉敏：weird 一词的常用义是“怪异、离奇”。原文评论中有人指出，这个词来源于古英语 wyrd，意指“命运”。每个人都有自己的 wyrd 或 weird，也许应该学会运用我们身上的出格之处，而不是把它装进世俗的框架。KK 表示，涨姿势了。有兴趣的童鞋可以参考维基百科上 wyrd 这个词条。另外，KK 也承认，很多建议都来自老话，他只不过把它们收集进来。所以，如果你在其他地方也读到过类似的建议，不用惊讶。
-
 
 
 2、If you have any doubt at all about being able to carry a load in one trip, do yourself a huge favor and make two trips.
