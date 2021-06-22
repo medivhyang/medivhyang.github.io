@@ -4,19 +4,19 @@ $side-container-width: 25%; //280px;
 $extra-container-width: 64px;
 $stream-container-max-width: 1480px;
 $h1-size: 30px;
-$h2-size: 27px;
-$h3-size: 24px;
-$h4-size: 21px;
-$h5-size: 18px;
+$h2-size: 24px;
+$h3-size: 21px;
+$h4-size: 18px;
+$h5-size: 15px;
 $h6-size: 15px;
 $meta-size: 14px;
+$item-title-size: $h2-size;
 $nav-title-size: 30px;
 $nav-subtitle-size: 18px;
 $nav-link-size: 20px;
 $nav-footer-size: 12px;
-$post-summary-size: 16px;
-$post-title-size: 30px;
-$post-body-size: 15px;
+$summary-size: 16px;
+$body-size: 15px;
 $toc-size: 16px;
 
 // mobile size
@@ -32,6 +32,7 @@ $mobile-summary-size: 14px;
 $mobile-meta-size: 13px;
 $mobile-body-size: 14px;
 $mobile-body-letter-spacing: 0.1em;
+$mobile-item-title-size: 16.8px;
 $mobile-nav-link-size: 18px;
 $mobile-nav-footer-size: 13px;
 $mobile-toc-size: 14px;
@@ -106,7 +107,7 @@ body {
 }
 
 @media screen and (max-width: $mobile-max-width) {
-  div, p, li {
+  * {
     letter-spacing: $mobile-body-letter-spacing;
   }
   pre > * {
@@ -418,7 +419,7 @@ table {
     }
 
     .single-column-header-subtitle {
-      font-size: $mobile-h2-size;
+      font-size: $mobile-body-size;
     }
   }
 }
@@ -730,14 +731,14 @@ table {
             }
 
             .post-item-title {
-              font-size: $h2-size;
+              font-size: $item-title-size;
               font-weight: bold;
               font-style: normal;
               margin-bottom: 10px;
               line-height: 1.5em;
 
               @media screen and (max-width: $mobile-max-width) {
-                font-size: $mobile-h2-size;
+                font-size: $mobile-item-title-size;
                 font-weight: bold;
                 margin-bottom: 5px;
               }
@@ -753,7 +754,7 @@ table {
             }
 
             .post-item-summary {
-              font-size: $post-summary-size;
+              font-size: $summary-size;
               line-height: 1.5em;
               margin-bottom: 10px;
 
@@ -895,7 +896,7 @@ table {
 
       .post-title {
         padding: 80px 35px 30px 35px;
-        font-size: $post-title-size;
+        font-size: $h1-size;
         font-weight: bold;
         font-style: normal;
         line-height: 1.5em;
@@ -952,7 +953,7 @@ table {
       }
 
       .post-title {
-        font-size: $post-title-size;
+        font-size: $h1-size;
         font-weight: bold;
         font-style: normal;
         line-height: 1.5em;
@@ -994,7 +995,7 @@ table {
       }
 
       .post-body {
-        font-size: $post-body-size;
+        font-size: $body-size;
         line-height: 1.5em;
 
         * {
