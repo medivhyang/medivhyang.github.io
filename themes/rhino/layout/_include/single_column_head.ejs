@@ -43,6 +43,7 @@
     </div>
 </nav>
 
+<% if(path == "index.html" || path == "" ){ %>
 <div class="single-column-header-container" ref="pageHead"
      v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }">
     <a href="<%= config.root %>">
@@ -50,3 +51,4 @@
         <div class="single-column-header-subtitle"><%= config.description %></div>
     </a>
 </div>
+<% } %>

@@ -18,9 +18,16 @@ app = new Vue({
             }
         },
         handleScroll() {
+            const {navBackground, navTitle} = this.$refs;
+
+            if (!this.$refs.pageHead) {
+                navBackground.style.opacity = 1;
+                navTitle.style.opacity = 1;
+                return
+            }
+
             this.scrollY = window.scrollY;
             this.navOpacity = this.sgn(.0, Math.min(1, Math.max(0, window.scrollY / (this.pageHeadHeight() - this.navBarHeight() * 0.8))));
-            const {navBar, navBackground, navTitle, extraContainer, streamContainer} = this.$refs;
 
             if (this.navOpacity >= 1) {
                 navBackground.style.opacity = 1;
