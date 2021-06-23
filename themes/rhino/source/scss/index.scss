@@ -40,14 +40,14 @@ $mobile-toc-size: 14px;
 // color
 $back-container-background: #fcfcfc;
 $front-container-background: #ffffff;
-// $color-accent: #9f563a;
-$color-accent: #1677b3;
-// $color-accent: #0F4C81;
+$color-accent: #0F4C81;
 $dark-accent: darken($color-accent, 10%);
 $deep-dark-accent: darken($color-accent, 30%);
 $text-color: #3f3f3f;
 $blockquote-color: rgb(80, 80, 80);
 $blockquote-background-color: #f7f7f7;
+$pre-color: #ccc;
+$pre-background-color: #f7f7f7;
 
 @if lightness($color-accent) <10% {
   $dark-accent: $color-accent;
@@ -114,12 +114,18 @@ body {
   * {
     letter-spacing: $mobile-body-letter-spacing;
   }
-  pre > * {
+
+  pre>* {
     letter-spacing: normal;
   }
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: bold;
 }
 
@@ -197,6 +203,48 @@ button {
   cursor: pointer;
 }
 
+blockquote {
+  color: $blockquote-color;
+  background: $blockquote-background-color;
+  line-height: 1.75;
+  font-style: normal;
+  border-left: none;
+  border-radius: 8px;
+  margin: 2em 8px;
+  margin-top: 0;
+  padding: 1em;
+
+  p {
+    margin-bottom: 0;
+  }
+
+  dl,
+  ol,
+  ul {
+    margin-bottom: 0;
+    padding-left: 20px;
+  }
+}
+
+pre {
+  background-color: $pre-background-color;
+  height: auto;
+  margin: 10px 8px;
+  padding: 12px 15px;
+  border-radius: 8px;
+  font-family: $mono-font-list;
+
+  * {
+    background: none !important;
+    font-family: $mono-font-list !important;
+  }
+
+  code {
+    background: none !important;
+    padding: 0;
+  }
+}
+
 code {
   color: $dark-accent;
   background: rgba($color-accent, 0.07) !important;
@@ -207,56 +255,6 @@ code {
 
 .code {
   width: 100%;
-}
-
-pre {
-  background: rgba($color-accent, 0.07) !important;
-  color: $dark-accent;
-  padding: 12px 15px;
-  border-radius: 5px;
-  font-family: $mono-font-list;
-
-  * {
-    background: none !important;
-    font-family: $mono-font-list !important;
-  }
-
-  code {
-    padding: 0;
-  }
-}
-
-blockquote {
-    color: $blockquote-color;
-    background: $blockquote-background-color;
-    line-height: 1.75;
-    font-style: normal;
-    border-left: none;
-    border-radius: 8px;
-    margin: 2em 8px;
-    margin-top: 0;
-    padding: 1em;
-
-
-  // padding: 10px 20px;
-  // border-left: 3px solid rgba($color-accent, 0.7);
-  // color: $dark-accent;
-  // background: rgba($color-accent, 0.05);
-
-  p {
-    margin-bottom: 0;
-  }
-
-  // * {
-  //   color: $dark-accent;
-  // }
-
-  dl,
-  ol,
-  ul {
-    margin-bottom: 0;
-    padding-left: 20px;
-  }
 }
 
 a,
