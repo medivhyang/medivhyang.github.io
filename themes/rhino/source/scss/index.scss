@@ -251,6 +251,11 @@ code {
   padding: 2px 5px;
   border-radius: 3px;
   font-family: $mono-font-list;
+
+  &,
+  * {
+    font-size: inherit;
+  }
 }
 
 .code {
