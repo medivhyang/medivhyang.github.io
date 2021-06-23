@@ -96,9 +96,6 @@ body {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
   text-rendering: optimizeLegibility !important;
   -webkit-font-smoothing: antialiased !important;
-}
-
-* {
   color: $text-color;
   font-size: $text-size;
   line-height: 1.5em;
@@ -111,7 +108,7 @@ body {
 }
 
 @media screen and (max-width: $mobile-max-width) {
-  * {
+  body {
     letter-spacing: $mobile-body-letter-spacing;
   }
 
