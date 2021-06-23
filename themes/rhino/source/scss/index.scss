@@ -46,6 +46,8 @@ $color-accent: #1677b3;
 $dark-accent: darken($color-accent, 10%);
 $deep-dark-accent: darken($color-accent, 30%);
 $text-color: #3f3f3f;
+$blockquote-color: rgb(80, 80, 80);
+$blockquote-background-color: #f7f7f7;
 
 @if lightness($color-accent) <10% {
   $dark-accent: $color-accent;
@@ -225,18 +227,29 @@ pre {
 }
 
 blockquote {
-  padding: 10px 20px;
-  border-left: 3px solid rgba($color-accent, 0.7);
-  color: $dark-accent;
-  background: rgba($color-accent, 0.05);
+    color: $blockquote-color;
+    background: $blockquote-background-color;
+    line-height: 1.75;
+    font-style: normal;
+    border-left: none;
+    border-radius: 8px;
+    margin: 2em 8px;
+    margin-top: 0;
+    padding: 1em;
+
+
+  // padding: 10px 20px;
+  // border-left: 3px solid rgba($color-accent, 0.7);
+  // color: $dark-accent;
+  // background: rgba($color-accent, 0.05);
 
   p {
     margin-bottom: 0;
   }
 
-  * {
-    color: $dark-accent;
-  }
+  // * {
+  //   color: $dark-accent;
+  // }
 
   dl,
   ol,
