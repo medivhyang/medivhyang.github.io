@@ -1,0 +1,366 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Git Commit Message 规范 - Medivh Yang 的博客</title>
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="author" content="Medivh Yang">
+<meta name="description" content="该规范提供了一组简单规则来创建清晰的提交历史，这更有利于编写自动化工具。">
+<meta name="keywords" content="">
+
+    <meta charset="utf-8">
+    <meta name="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="renderer" content="webkit">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/index.css?60696866">
+
+<script src="/js/load-css.js"></script>
+<script>
+    loadCSS("https://fonts.googleapis.com/css?family=Lora|Montserrat|Fira+Mono|Material+Icons");
+    (function (d) {
+        var config = {
+                kitId: 'dwg1tuc',
+                scriptTimeout: 3000,
+                async: true
+            },
+            h = d.documentElement, t = setTimeout(function () {
+                h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
+            }, config.scriptTimeout), tk = d.createElement("script"), f = false,
+            s = d.getElementsByTagName("script")[0], a;
+        h.className += " wf-loading";
+        tk.src = 'https://use.typekit.net/' + config.kitId + '.js';
+        tk.async = true;
+        tk.onload = tk.onreadystatechange = function () {
+            a = this.readyState;
+            if (f || a && a != "complete" && a != "loaded") return;
+            f = true;
+            clearTimeout(t);
+            try {
+                Typekit.load(config)
+            } catch (e) {
+            }
+        };
+        s.parentNode.insertBefore(tk, s)
+    })(document);
+</script>
+<noscript>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Lora|Montserrat|Anonymous+Pro:400|Material+Icons"/>
+</noscript>
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body>
+<div id="top"></div>
+<div id="app">
+<div class="single-column-drawer-container" ref="drawer"
+     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
+    <div class="drawer-content">
+        <div class="drawer-menu">
+            <a class="a-block drawer-menu-item false" href="http://medivhyang.com">
+                首页
+            </a>
+            
+            <a class="a-block drawer-menu-item false" href="/archives">
+                归档
+            </a>
+            
+
+            
+            
+            <a class="a-block drawer-menu-item false" href="/about/index.html">
+                关于
+            </a>
+            
+            <a class="a-block drawer-menu-item false" href="/links/index.html">
+                导航
+            </a>
+            
+            <a class="a-block drawer-menu-item false" href="/tags/index.html">
+                标签
+            </a>
+            
+            <a class="a-block drawer-menu-item false" href="/tools/index.html">
+                工具
+            </a>
+            
+
+            
+        </div>
+    </div>
+</div>
+<transition name="fade">
+    <div v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
+</transition>
+<nav ref="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
+    <div ref="navBackground" class="nav-background"></div>
+    <div class="container container-narrow nav-content">
+        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <a ref="navTitle" class="navbar-brand" href="/">
+            Medivh Yang 的博客
+        </a>
+    </div>
+</nav>
+
+
+<div ref="sideContainer" class="side-container">
+    <a class="a-block nav-head false" href="/">
+        <div class="nav-title">
+            Medivh Yang 的博客
+        </div>
+        <div class="nav-subtitle">
+            不撞南墙 怎知回头
+        </div>
+    </a>
+
+    <div class="nav-link-list">
+        
+        <a class="a-block no-tint nav-link-item false" href="/archives">
+            归档
+        </a>
+        
+
+        
+        
+        <a class="a-block nav-link-item false" href="/about/index.html">
+            关于
+        </a>
+        
+        <a class="a-block nav-link-item false" href="/links/index.html">
+            导航
+        </a>
+        
+        <a class="a-block nav-link-item false" href="/tags/index.html">
+            标签
+        </a>
+        
+        <a class="a-block nav-link-item false" href="/tools/index.html">
+            工具
+        </a>
+        
+
+        
+    </div>
+
+    
+    <div class="nav-footer">
+        Proudly published with Hexo<br>
+        
+        Theme <a href="https://github.com/medivhyang/hexo-theme-rhino/" target="_blank" rel="noreferrer noopener">Rhino</a> by <a href="https://medivhyang.com/" target="_blank" rel="noreferrer noopener">Medivh Yang</a><br>
+        
+        &copy; 2021 <a href="http://medivhyang.com">Medivh Yang 的博客</a>
+    </div>
+</div>
+<div ref="extraContainer" class="extra-container">
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top" :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+
+        
+    </div>
+</div>
+
+
+
+<div ref="streamContainer" class="stream-container">
+    <div class="post-list-container post-list-container-shadow">
+        <div class="post">
+            <div class="post-head-wrapper-text-only"
+                 style="background-image: url('')">
+                <div class="post-title">
+                    Git Commit Message 规范
+                    <div class="post-meta">
+                        <time datetime="2021-04-14T08:50:50.000Z" itemprop="datePublished">
+                            2021-04-14 16:50
+                        </time>&nbsp;
+                        
+    
+                        
+                        
+                        <i class="material-icons" style="">label</i>
+                        
+                        <a href='/tags/工具/'>工具</a>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+    
+            <div class="post-body-wrapper">
+                <div class="post-body">
+                    <p>该规范提供了一组简单规则来创建清晰的提交历史，这更有利于编写自动化工具。</p>
+<h2><span id="模板">模板</span></h2><pre class="line-numbers language-none"><code class="language-none">&lt;type&gt;[(optional scope)]: &lt;description&gt;
+
+[optional body]
+
+[optional footer(s)]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>译文：</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;类型&gt;[可选 范围]: &lt;描述&gt;
+
+[可选 正文]
+
+[可选 脚注]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3><span id="type">type</span></h3><p>type 用于说明 commit 的类别。</p>
+<table>
+<thead>
+<tr>
+<th>关键词</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>feat</strong></td>
+<td>新功能（feature）</td>
+</tr>
+<tr>
+<td><strong>fix</strong></td>
+<td>修复 bug</td>
+</tr>
+<tr>
+<td><strong>docs</strong></td>
+<td>文档（documentation）</td>
+</tr>
+<tr>
+<td><strong>style</strong></td>
+<td>格式（不影响代码运行的变动）</td>
+</tr>
+<tr>
+<td><strong>refactor</strong></td>
+<td>重构（即不是新增功能，也不是修改 bug 的代码变动）</td>
+</tr>
+<tr>
+<td><strong>test</strong></td>
+<td>增加测试</td>
+</tr>
+<tr>
+<td><strong>chore</strong></td>
+<td>构建过程或辅助工具的变动</td>
+</tr>
+<tr>
+<td>perf</td>
+<td>优化相关，比如提升性能、体验</td>
+</tr>
+<tr>
+<td>revert</td>
+<td>回滚到上一个版本</td>
+</tr>
+<tr>
+<td>merge</td>
+<td>代码合并</td>
+</tr>
+</tbody></table>
+<h3><span id="scope可选">scope（可选）</span></h3><p>scope 用于说明 commit 影响的范围，比如数据层、控制层、视图层等等，视项目不同而不同。</p>
+<h3><span id="subject">subject</span></h3><p>subject 是 commit 目的的简短描述，不超过 50 个字符。</p>
+<ul>
+<li>以动词开头，使用第一人称现在时，比如 change，而不是 changed 或 changes。</li>
+<li>第一个字母小写。</li>
+<li>结尾不加句号。</li>
+</ul>
+<h3><span id="body可选">body（可选）</span></h3><p>Body 部分是对本次 commit 的详细描述，可以分成多行。有两点需要注意：</p>
+<ul>
+<li>使用第一人称现在时，比如使用 change 而不是 changed 或 changes。</li>
+<li>应该说明代码变动的动机，以及与以前行为的对比。</li>
+</ul>
+<h3><span id="footer可选">footer（可选）</span></h3><p>Footer 部分只用于两种情况。</p>
+<p>1、不兼容变动</p>
+<p>如果当前代码与上一个版本不兼容，则 Footer 部分以BREAKING CHANGE开头，后面是对变动的描述、以及变动理由和迁移方法。</p>
+<pre class="line-numbers language-none"><code class="language-none">BREAKING CHANGE: isolate scope bindings definition has changed.
+
+    To migrate the code follow the example below:
+
+    Before:
+
+    scope: &#123;
+      myAttr: &#39;attribute&#39;,
+    &#125;
+
+    After:
+
+    scope: &#123;
+      myAttr: &#39;@&#39;,
+    &#125;
+
+    The removed &#96;inject&#96; wasn&#39;t generaly useful for directives so there should be no code using it.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>2、关闭 Issue</p>
+<p>如果当前 commit 针对某个issue，那么可以在 Footer 部分关闭这个 issue 。</p>
+<pre class="line-numbers language-none"><code class="language-none">Closes #234<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>也可以一次关闭多个 issue 。</p>
+<pre class="line-numbers language-none"><code class="language-none">Closes #123, #245, #992<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<h2><span id="工具">工具</span></h2><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/commitizen/cz-cli">Commitizen</a>：是一个撰写合格 commit message 的工具。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/kentcdodds/validate-commit-msg">validate-commit-msg</a>：用于检查 Node 项目的 commit message 是否符合格式。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ajoslin/conventional-changelog">conventional-changelog</a>：是生成 change log 的工具。</li>
+<li><a target="_blank" rel="noopener" href="https://gitmoji.dev/">gitmoji</a>：commit message 的表情符号指南。</li>
+</ul>
+<h2><span id="参考链接">参考链接</span></h2><ul>
+<li><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html">Commit message 和 Change log 编写指南 - 阮一峰的网络日志</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.conventionalcommits.org/zh-hans/v1.0.0/">约定式提交</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#heading=h.greljkmo14y0">Git Commit Message Conventions - Google 文档</a></li>
+</ul>
+
+                </div>
+            </div>
+    
+            <nav class="post-pagination">
+    
+    <a class="newer-posts" href="/curl/">
+        上一篇<br>Curl 使用指南
+    </a>
+    
+    <span class="page-number"></span>
+    
+    <a class="older-posts" href="/jass/">
+        下一篇<br>Jass 简明教程
+    </a>
+    
+</nav>
+
+    
+            
+
+
+        </div>
+    </div>
+    <div class="single-column-footer">
+    Proudly published with Hexo<br>
+    
+    Theme <a href="https://github.com/medivhyang/hexo-theme-rhino/" target="_blank" rel="noreferrer noopener">Rhino</a> by <a href="https://medivhyang.com/" target="_blank" rel="noreferrer noopener">Medvih Yang</a><br>
+    
+    &copy; 2021 <a href="http://medivhyang.com">Medivh Yang 的博客</a>
+</div>
+</div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"
+        integrity="sha256-EGs9T1xMHdvM1geM8jPpoo8EZ1V1VRsmcJz8OByENLA=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+        integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"
+        integrity="sha256-FtWfRI+thWlNz2sB3SJbwKx5PgMyKIVgwHCTwa3biXc=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/smooth-scroll@14.2.1/dist/smooth-scroll.polyfills.min.js"
+        integrity="sha256-CI4Gq5E0io1Pv0xM3qPM+NUIOhbIBvC3GiN1Y4KhXpw=" crossorigin="anonymous"></script>
+<script src="/js/index.js?99934942"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>工具 - Medivh Yang 的博客</title>
+    <style>
+        .tools-item { 
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        .tools-item:hover { 
+            box-shadow: 1px 2px 5px gray;
+        }
+        .tools-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="/">返回博客</a>
+    <div id="tools-timestamp-convert" class="tools-item">
+        <div class="tools-title">时间戳转换为字符串</div>
+        时间戳：<input type="number" id="tools-timestamp-convert-input-1" placeholder="单位：秒">
+        <input type="button" value="转换" id="tools-timestamp-convert-ok-1">
+        <input type="text" id="tools-timestamp-convert-output-1" readonly>
+        <br> <br>
+        <div class="tools-title">字符串转换为时间戳</div>
+        字符串：<input type="text" id="tools-timestamp-convert-input-2">
+        <input type="button" value="转换" id="tools-timestamp-convert-ok-2">
+        <input type="number" id="tools-timestamp-convert-output-2" readonly>
+    </div>
+    <script>
+        function initToolsTimestampConvert() {
+            const timeLayout = 'yy-MM-dd hh:mm:ss'
+
+            // convert timestamp to str
+            document.getElementById("tools-timestamp-convert-ok-1").addEventListener("click", function (v) {
+                convertTimestampToStr()
+            }, true)
+
+            const inputEl1 = document.getElementById("tools-timestamp-convert-input-1")
+            inputEl1.value = Date.parse(new Date()) / 1000
+            convertTimestampToStr()
+
+            function convertTimestampToStr() {
+                const inputEl = document.getElementById("tools-timestamp-convert-input-1")
+                const outputEl = document.getElementById("tools-timestamp-convert-output-1")
+                outputEl.value = formatTime(new Date(parseInt(inputEl.value)*1000), timeLayout)
+            }
+
+            function formatTime(t, fmt) {
+                console.log("tools timestampe convert:", t, fmt)
+                var o = {
+                    "M+": t.getMonth() + 1, // 月份
+                    "d+": t.getDate(), // 日
+                    "h+": t.getHours(), // 小时
+                    "m+": t.getMinutes(), // 分
+                    "s+": t.getSeconds(), // 秒
+                    "q+": Math.floor((t.getMonth() + 3) / 3), // 季度
+                    "S": t.getMilliseconds() // 毫秒
+                };
+                if (/(y+)/.test(fmt))
+                    fmt = fmt.replace(RegExp.$1, (t.getFullYear() + ""));
+                for (var k in o)
+                    if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ?
+                        (o[k]) :
+                        (("00" + o[k]).substr(("" + o[k]).length)));
+                return fmt;
+            }
+
+            // convert str to timestamp 
+            document.getElementById("tools-timestamp-convert-ok-2").addEventListener("click", function (v) {
+                convertStrToTimestamp()
+            }, true)
+            const inputEl2 = document.getElementById("tools-timestamp-convert-input-2")
+            inputEl2.value = formatTime(new Date(), timeLayout)
+            convertStrToTimestamp()
+
+            function convertStrToTimestamp() {
+                const inputEl = document.getElementById("tools-timestamp-convert-input-2")
+                const outputEl = document.getElementById("tools-timestamp-convert-output-2")
+                outputEl.value = parseTime(inputEl.value) / 1000
+            }
+
+            function parseTime(s) {
+                s = s.replace(/-/g,'/')
+                return new Date(s).getTime()
+            }
+        }
+
+        window.onload = function () {
+            initToolsTimestampConvert()
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,273 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>编程中最简单的事 - Medivh Yang 的博客</title>
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="author" content="Medivh Yang">
+<meta name="description" content="仿邱国鹭的《投资中最简单的事》一书，想聊聊在编程领域中我认为最简单的事。">
+<meta name="keywords" content="">
+
+    <meta charset="utf-8">
+    <meta name="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="renderer" content="webkit">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/index.css?53749538">
+
+<script src="/js/load-css.js"></script>
+<script>
+    loadCSS("https://fonts.googleapis.com/css?family=Lora|Montserrat|Fira+Mono|Material+Icons");
+    (function (d) {
+        var config = {
+                kitId: 'dwg1tuc',
+                scriptTimeout: 3000,
+                async: true
+            },
+            h = d.documentElement, t = setTimeout(function () {
+                h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
+            }, config.scriptTimeout), tk = d.createElement("script"), f = false,
+            s = d.getElementsByTagName("script")[0], a;
+        h.className += " wf-loading";
+        tk.src = 'https://use.typekit.net/' + config.kitId + '.js';
+        tk.async = true;
+        tk.onload = tk.onreadystatechange = function () {
+            a = this.readyState;
+            if (f || a && a != "complete" && a != "loaded") return;
+            f = true;
+            clearTimeout(t);
+            try {
+                Typekit.load(config)
+            } catch (e) {
+            }
+        };
+        s.parentNode.insertBefore(tk, s)
+    })(document);
+</script>
+<noscript>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Lora|Montserrat|Anonymous+Pro:400|Material+Icons"/>
+</noscript>
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body>
+<div id="top"></div>
+<div id="app">
+<div class="single-column-drawer-container" ref="drawer"
+     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
+    <div class="drawer-content">
+        <div class="drawer-menu">
+            <a class="a-block drawer-menu-item false" href="http://medivhyang.com">
+                首页
+            </a>
+            
+            <a class="a-block drawer-menu-item false" href="/archives">
+                归档
+            </a>
+            
+
+            
+            
+            <a class="a-block drawer-menu-item false" href="/about/index.html">
+                关于
+            </a>
+            
+            <a class="a-block drawer-menu-item false" href="/links/index.html">
+                导航
+            </a>
+            
+            <a class="a-block drawer-menu-item false" href="/tags/index.html">
+                标签
+            </a>
+            
+            <a class="a-block drawer-menu-item false" href="/tools/index.html">
+                工具
+            </a>
+            
+
+            
+        </div>
+    </div>
+</div>
+<transition name="fade">
+    <div v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
+</transition>
+<nav ref="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
+    <div ref="navBackground" class="nav-background"></div>
+    <div class="container container-narrow nav-content">
+        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <a ref="navTitle" class="navbar-brand" href="/">
+            Medivh Yang 的博客
+        </a>
+    </div>
+</nav>
+
+
+<div ref="sideContainer" class="side-container">
+    <a class="a-block nav-head false" href="/">
+        <div class="nav-title">
+            Medivh Yang 的博客
+        </div>
+        <div class="nav-subtitle">
+            不撞南墙 怎知回头
+        </div>
+    </a>
+
+    <div class="nav-link-list">
+        
+        <a class="a-block no-tint nav-link-item false" href="/archives">
+            归档
+        </a>
+        
+
+        
+        
+        <a class="a-block nav-link-item false" href="/about/index.html">
+            关于
+        </a>
+        
+        <a class="a-block nav-link-item false" href="/links/index.html">
+            导航
+        </a>
+        
+        <a class="a-block nav-link-item false" href="/tags/index.html">
+            标签
+        </a>
+        
+        <a class="a-block nav-link-item false" href="/tools/index.html">
+            工具
+        </a>
+        
+
+        
+    </div>
+
+    
+    <div class="nav-footer">
+        Proudly published with Hexo<br>
+        
+        Theme <a href="https://github.com/medivhyang/hexo-theme-rhino/" target="_blank" rel="noreferrer noopener">Rhino</a> by <a href="https://medivhyang.com/" target="_blank" rel="noreferrer noopener">Medivh Yang</a><br>
+        
+        &copy; 2021 <a href="http://medivhyang.com">Medivh Yang 的博客</a>
+    </div>
+</div>
+<div ref="extraContainer" class="extra-container">
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top" :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+
+        
+    </div>
+</div>
+
+
+
+<div ref="streamContainer" class="stream-container">
+    <div class="post-list-container post-list-container-shadow">
+        <div class="post">
+            <div class="post-head-wrapper-text-only"
+                 style="background-image: url('')">
+                <div class="post-title">
+                    编程中最简单的事
+                    <div class="post-meta">
+                        <time datetime="2021-05-28T02:14:23.000Z" itemprop="datePublished">
+                            2021-05-28 10:14
+                        </time>&nbsp;
+                        
+    
+                        
+                        
+                        <i class="material-icons" style="">label</i>
+                        
+                        <a href='/tags/随想/'>随想</a>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+    
+            <div class="post-body-wrapper">
+                <div class="post-body">
+                    <blockquote>
+<p>仿邱国鹭的《投资中最简单的事》一书，想聊聊在编程领域中我认为最简单的事。</p>
+</blockquote>
+<h2><span id="1-声明与销毁">1、声明与销毁</span></h2><p>声明的主要职责是命名。万物皆有名，没有名字就没法引用，没法引用就不能执行任何操作。其次，声明也会附带其他信息描述，例如类型、作用域和读写性。</p>
+<p>销毁的主要职责是为了释放资源。资源是有限的，不销毁就不能重复使用，所以软件运行时通常有回收的机制。</p>
+<p>从声明到销毁，正好是一个变量的生命周期，而变量就是一个概念容器，它能承载相关状态和行为。</p>
+<h2><span id="2-顺序与跳转">2、顺序与跳转</span></h2><p>有逻辑的事物一般具有顺序，没有顺序，就很难有因果关系，没有因果关系，就很难找到任何意义，所以我们会常常问自己：先做什么，然后做什么，最后做什么。</p>
+<p>跳转是选择不同的执行路径，从而解决不同的问题。由于可以重复跳转同一代码块，这增加了代码的使用率。编程语言中条件和循环语句就是跳转的具体表现形式。</p>
+<p>其实我最想说的是，顺序是秩序的体现。</p>
+<h2><span id="3-重复与分形">3、重复与分形</span></h2><p>复杂是如何从简单演化而来？答案是重复。我们可以重复使用简单的规则，就可以创造大量的复杂的解决方案，图灵机就是这样的伟大模型。编程语言中的循环语句就是重复的直接表现形式。</p>
+<p>分形是重复的特殊形式，它是垂直方向上的重复，也可以说是层级上或者深度上的重复。它是自相似结构，非常具有美感。体现在编程语言中的常规形式就是递归调用。</p>
+<p>通常来说，任何简单的规则都可以重复，重复到一定规模后就会形成量变，量变就会有新的模式涌现出来，这就是重复的意义。</p>
+<h2><span id="4-依赖与隔离">4、依赖与隔离</span></h2><p>依赖意味着两件事物之间有交互，任何微小的改变都可能影响另一方。依赖的关系图是网络模型，这就意味着，增加任意节点或者任意连接，都有可能影响整个网络。网络模型是分布式的基础，网络模型中的节点如果是自治和冗余的，则可以增加稳定性，否则增加扰动性。</p>
+<p>隔离是两者任意一方的改变都不会相互影响。隔离虽然可以隔绝变化带来的负面影响，但是缺少交互和协作能力，通常来说，没有交互的程序，意义不是特别大，所以很少存在完全隔离的程序。</p>
+<p>依赖和隔离是两个互斥的概念，我们通常设计为，依赖变化较小的，隔离变化较大的。</p>
+<h2><span id="5-抽象与映射">5、抽象与映射</span></h2><p>抽象就是抽取重要的东西，而映射就是使两个事物之间产生关联关系。</p>
+<p>利用抽象与映射，我们可以创造出解决复杂问题的通用模式。我们可以想象有两个空间，分别是问题空间和解空间，问题空间是相对真实且复杂的，解空间是对问题空间的抽象与映射，相对虚拟且简单的，我们通常会在解空间得出答案，因为相对容易，然后再返回给问题空间，从而解决了最终真实问题。</p>
+<h2><span id="6-分解与聚合">6、分解与聚合</span></h2><p>越简单的模块越容易复用，因为职责单一，且容易理解，但是如果模块数量越来越多，则又会变得难以使用，因为太多关系难以厘清，仿佛身处网络迷宫，这就是分解与聚合的矛盾。</p>
+<p>分解是分而治之的思想，将复杂模块分解为相对较小的模块，然后逐一击破。聚合是封装的思想，隐藏实现细节，提供易用接口。分解与聚合是相互拮抗的关系，没有绝对的规则指导你将复杂模块分解到何种粒度，但我们总是维持着当下环境的相对平衡状态，而这个平衡状态很可能被新需求打破重组。</p>
+<p>其次，聚合还有领域上的意义，它是一个概念相对完整的实体，具有高度自治性。</p>
+<h2><span id="7-崩溃与重组">7、崩溃与重组</span></h2><p>从一个稳态跳到另一个稳态，中间会发生什么呢？也许会很平滑的过渡，但大多数是崩溃与重组，打破原有的稳态，重组为新的稳态，这在化学实验里的感受会特别明显。</p>
+<p>在实际开发中，当项目来新需求时，旧的业务模型是否仍然适用？不适用的情况下，是打补丁还是重构呢？时间允许的情况下，通常我们会更新我们的业务模型，使用更贴切的领域语言来描述，但是不允许的情况下，我们会增加若干分支语句来苦苦支撑，这种场景实在太常见了，因为我们不可能从项目的开始预测到所有变化，所以崩溃和重组是频繁发生的，我们必须意识到这一点，才不会感到突兀。</p>
+
+                </div>
+            </div>
+    
+            <nav class="post-pagination">
+    
+    <a class="newer-posts" href="/attractor-and-antagonist/">
+        上一篇<br>吸引子与对抗子
+    </a>
+    
+    <span class="page-number"></span>
+    
+    <a class="older-posts" href="/kk-advices/">
+        下一篇<br>KK 在 69 岁生日时给出的 99 条建议
+    </a>
+    
+</nav>
+
+    
+            
+
+
+        </div>
+    </div>
+    <div class="single-column-footer">
+    Proudly published with Hexo<br>
+    
+    Theme <a href="https://github.com/medivhyang/hexo-theme-rhino/" target="_blank" rel="noreferrer noopener">Rhino</a> by <a href="https://medivhyang.com/" target="_blank" rel="noreferrer noopener">Medvih Yang</a><br>
+    
+    &copy; 2021 <a href="http://medivhyang.com">Medivh Yang 的博客</a>
+</div>
+</div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"
+        integrity="sha256-EGs9T1xMHdvM1geM8jPpoo8EZ1V1VRsmcJz8OByENLA=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+        integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"
+        integrity="sha256-FtWfRI+thWlNz2sB3SJbwKx5PgMyKIVgwHCTwa3biXc=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/smooth-scroll@14.2.1/dist/smooth-scroll.polyfills.min.js"
+        integrity="sha256-CI4Gq5E0io1Pv0xM3qPM+NUIOhbIBvC3GiN1Y4KhXpw=" crossorigin="anonymous"></script>
+<script src="/js/index.js?21046726"></script>
+
+
+
+</body>
+</html>

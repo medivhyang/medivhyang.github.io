@@ -1,0 +1,338 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Git 简明教程 - Medivh Yang 的博客</title>
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="author" content="Medivh Yang">
+<meta name="description" content="Git是一个免费的开源分布式版本控制系统，旨在快速高效地处理从小型到大型项目的所有内容。">
+<meta name="keywords" content="">
+
+    <meta charset="utf-8">
+    <meta name="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="renderer" content="webkit">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/index.css?26638191">
+
+<script src="/js/load-css.js"></script>
+<script>
+    loadCSS("https://fonts.googleapis.com/css?family=Lora|Montserrat|Fira+Mono|Material+Icons");
+    (function (d) {
+        var config = {
+                kitId: 'dwg1tuc',
+                scriptTimeout: 3000,
+                async: true
+            },
+            h = d.documentElement, t = setTimeout(function () {
+                h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
+            }, config.scriptTimeout), tk = d.createElement("script"), f = false,
+            s = d.getElementsByTagName("script")[0], a;
+        h.className += " wf-loading";
+        tk.src = 'https://use.typekit.net/' + config.kitId + '.js';
+        tk.async = true;
+        tk.onload = tk.onreadystatechange = function () {
+            a = this.readyState;
+            if (f || a && a != "complete" && a != "loaded") return;
+            f = true;
+            clearTimeout(t);
+            try {
+                Typekit.load(config)
+            } catch (e) {
+            }
+        };
+        s.parentNode.insertBefore(tk, s)
+    })(document);
+</script>
+<noscript>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Lora|Montserrat|Anonymous+Pro:400|Material+Icons"/>
+</noscript>
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body>
+<div id="top"></div>
+<div id="app">
+<div class="single-column-drawer-container" ref="drawer"
+     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
+    <div class="drawer-content">
+        <div class="drawer-menu">
+            <a class="a-block drawer-menu-item false" href="http://medivhyang.com">
+                首页
+            </a>
+            
+            <a class="a-block drawer-menu-item false" href="/archives">
+                归档
+            </a>
+            
+
+            
+            
+            <a class="a-block drawer-menu-item false" href="/about/index.html">
+                关于
+            </a>
+            
+            <a class="a-block drawer-menu-item false" href="/links/index.html">
+                导航
+            </a>
+            
+            <a class="a-block drawer-menu-item false" href="/tags/index.html">
+                标签
+            </a>
+            
+            <a class="a-block drawer-menu-item false" href="/tools/index.html">
+                工具
+            </a>
+            
+
+            
+        </div>
+    </div>
+</div>
+<transition name="fade">
+    <div v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
+</transition>
+<nav ref="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
+    <div ref="navBackground" class="nav-background"></div>
+    <div class="container container-narrow nav-content">
+        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <a ref="navTitle" class="navbar-brand" href="/">
+            Medivh Yang 的博客
+        </a>
+    </div>
+</nav>
+
+
+<div ref="sideContainer" class="side-container">
+    <a class="a-block nav-head false" href="/">
+        <div class="nav-title">
+            Medivh Yang 的博客
+        </div>
+        <div class="nav-subtitle">
+            不撞南墙 怎知回头
+        </div>
+    </a>
+
+    <div class="nav-link-list">
+        
+        <a class="a-block no-tint nav-link-item false" href="/archives">
+            归档
+        </a>
+        
+
+        
+        
+        <a class="a-block nav-link-item false" href="/about/index.html">
+            关于
+        </a>
+        
+        <a class="a-block nav-link-item false" href="/links/index.html">
+            导航
+        </a>
+        
+        <a class="a-block nav-link-item false" href="/tags/index.html">
+            标签
+        </a>
+        
+        <a class="a-block nav-link-item false" href="/tools/index.html">
+            工具
+        </a>
+        
+
+        
+    </div>
+
+    
+    <div class="nav-footer">
+        Proudly published with Hexo<br>
+        
+        Theme <a href="https://github.com/medivhyang/hexo-theme-rhino/" target="_blank" rel="noreferrer noopener">Rhino</a> by <a href="https://medivhyang.com/" target="_blank" rel="noreferrer noopener">Medivh Yang</a><br>
+        
+        &copy; 2021 <a href="http://medivhyang.com">Medivh Yang 的博客</a>
+    </div>
+</div>
+<div ref="extraContainer" class="extra-container">
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top" :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+
+        
+    </div>
+</div>
+
+
+
+<div ref="streamContainer" class="stream-container">
+    <div class="post-list-container post-list-container-shadow">
+        <div class="post">
+            <div class="post-head-wrapper-text-only"
+                 style="background-image: url('')">
+                <div class="post-title">
+                    Git 简明教程
+                    <div class="post-meta">
+                        <time datetime="2021-03-12T09:43:59.000Z" itemprop="datePublished">
+                            2021-03-12 17:43
+                        </time>&nbsp;
+                        
+    
+                        
+                        
+                        <i class="material-icons" style="">label</i>
+                        
+                        <a href='/tags/工具/'>工具</a>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+    
+            <div class="post-body-wrapper">
+                <div class="post-body">
+                    <p><a target="_blank" rel="noopener" href="https://git-scm.com/">Git</a> 是一个免费的开源分布式版本控制系统，旨在快速高效地处理从小型到大型项目的所有内容。</p>
+<h2><span id="常规流程">常规流程</span></h2><p>1、查看状态</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> status<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>2、添加文件</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>3、本地提交</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> commit -m <span class="token string">"feat: add new feature"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>4、远端推送</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> push<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>5、查看日志</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> log<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2><span id="分支管理">分支管理</span></h2><p>新建本地分支 foo </p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> checkout -b foo<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>删除本地分支 foo</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> branch -d foo<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>合并分支：合并其他分支到当前分支上</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> merge <span class="token operator">&lt;</span>branch<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2><span id="撤销回退">撤销回退</span></h2><p>重置提交</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 保留工作区，暂存区和指定提交合并。</span>
+<span class="token function">git</span> reset --soft <span class="token punctuation">[</span>commit<span class="token punctuation">]</span>
+
+<span class="token comment"># 保留工作区，重置暂存区为指定提交，与 “--mixed” 选项等价。</span>
+<span class="token function">git</span> reset <span class="token punctuation">[</span>commit<span class="token punctuation">]</span>
+
+<span class="token comment"># 清空工作区，重置暂存区为指定提交。</span>
+<span class="token function">git</span> reset --hard <span class="token punctuation">[</span>commit<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>三个区域：</p>
+<ul>
+<li>工作区：当前的工作目录，还未加入版本管理的文件集合。</li>
+<li>暂存区：准备提交远端的文件集合，执行 <code>git add</code> 后的文件集合。</li>
+<li>仓库：提交历史，执行 <code>git commit</code> 后的文件集合，HEAD 为最后一次提交的引用。</li>
+</ul>
+</blockquote>
+<p>重置或检出文件</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 保留工作区，重置暂存区的指定文件为指定提交版本。</span>
+<span class="token function">git</span> reset <span class="token punctuation">[</span>commit<span class="token punctuation">]</span> <span class="token operator">&lt;</span>paths<span class="token operator">></span>
+
+<span class="token comment"># 重置工作区和暂存区的指定文件为指定提交版本</span>
+<span class="token function">git</span> checkout <span class="token punctuation">[</span>commit<span class="token punctuation">]</span> <span class="token operator">&lt;</span>paths<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>修改最后一次本地提交</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> commit --amend<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<blockquote>
+<p>做两件事：</p>
+<ul>
+<li>添加、移除或修改文件。</li>
+<li>修改提交消息，如果不需要修改提交消息，可加上 <code>--no-edit</code> 选项。</li>
+</ul>
+</blockquote>
+<br>
+
+<p>重写历史（变基）</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 编辑提交历史修改计划</span>
+<span class="token function">git</span> rebase -i <span class="token operator">&lt;</span>commit<span class="token operator">></span>
+
+<span class="token comment"># 对每条记录修改需要进行的操作</span>
+<span class="token comment"># ...</span>
+
+<span class="token comment"># 修改（循环）</span>
+<span class="token comment"># ...</span>
+
+<span class="token comment"># 提交修改（循环）</span>
+<span class="token function">git</span> rebase --continue<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>常见操作：</p>
+<ul>
+<li>pick：维持原有提交不变。</li>
+<li>edit：编辑原有提交，例如，可以修改提交消息或者拆分单次提交为多次提交。</li>
+<li>squash：压缩多次提交为一次提交。</li>
+</ul>
+</blockquote>
+<h2><span id="参考链接">参考链接</span></h2><ul>
+<li><a target="_blank" rel="noopener" href="https://git-scm.com/">Git</a></li>
+<li><a target="_blank" rel="noopener" href="https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E9%87%8D%E7%BD%AE%E6%8F%AD%E5%AF%86">Git-工具-重置揭密</a></li>
+<li><a target="_blank" rel="noopener" href="https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E9%87%8D%E5%86%99%E5%8E%86%E5%8F%B2">Git-工具-重写历史</a></li>
+</ul>
+
+                </div>
+            </div>
+    
+            <nav class="post-pagination">
+    
+    <a class="newer-posts" href="/database/mysql/">
+        上一篇<br>MySQL 简明教程
+    </a>
+    
+    <span class="page-number"></span>
+    
+    <a class="older-posts" href="/database/sqlite3-tools/">
+        下一篇<br>SQLite3 命令行工具
+    </a>
+    
+</nav>
+
+    
+            
+
+
+        </div>
+    </div>
+    <div class="single-column-footer">
+    Proudly published with Hexo<br>
+    
+    Theme <a href="https://github.com/medivhyang/hexo-theme-rhino/" target="_blank" rel="noreferrer noopener">Rhino</a> by <a href="https://medivhyang.com/" target="_blank" rel="noreferrer noopener">Medvih Yang</a><br>
+    
+    &copy; 2021 <a href="http://medivhyang.com">Medivh Yang 的博客</a>
+</div>
+</div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"
+        integrity="sha256-EGs9T1xMHdvM1geM8jPpoo8EZ1V1VRsmcJz8OByENLA=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+        integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"
+        integrity="sha256-FtWfRI+thWlNz2sB3SJbwKx5PgMyKIVgwHCTwa3biXc=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/smooth-scroll@14.2.1/dist/smooth-scroll.polyfills.min.js"
+        integrity="sha256-CI4Gq5E0io1Pv0xM3qPM+NUIOhbIBvC3GiN1Y4KhXpw=" crossorigin="anonymous"></script>
+<script src="/js/index.js?16985926"></script>
+
+
+
+</body>
+</html>

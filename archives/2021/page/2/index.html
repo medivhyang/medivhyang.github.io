@@ -1,0 +1,458 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>归档: 2021 - Medivh Yang 的博客</title>
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="author" content="Medivh Yang">
+<meta name="description" content="不撞南墙 怎知回头">
+<meta name="keywords" content="">
+
+    <meta charset="utf-8">
+    <meta name="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="renderer" content="webkit">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/index.css?77899150">
+
+<script src="/js/load-css.js"></script>
+<script>
+    loadCSS("https://fonts.googleapis.com/css?family=Lora|Montserrat|Fira+Mono|Material+Icons");
+    (function (d) {
+        var config = {
+                kitId: 'dwg1tuc',
+                scriptTimeout: 3000,
+                async: true
+            },
+            h = d.documentElement, t = setTimeout(function () {
+                h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
+            }, config.scriptTimeout), tk = d.createElement("script"), f = false,
+            s = d.getElementsByTagName("script")[0], a;
+        h.className += " wf-loading";
+        tk.src = 'https://use.typekit.net/' + config.kitId + '.js';
+        tk.async = true;
+        tk.onload = tk.onreadystatechange = function () {
+            a = this.readyState;
+            if (f || a && a != "complete" && a != "loaded") return;
+            f = true;
+            clearTimeout(t);
+            try {
+                Typekit.load(config)
+            } catch (e) {
+            }
+        };
+        s.parentNode.insertBefore(tk, s)
+    })(document);
+</script>
+<noscript>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Lora|Montserrat|Anonymous+Pro:400|Material+Icons"/>
+</noscript>
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body>
+<div id="top"></div>
+<div id="app">
+<div class="single-column-drawer-container" ref="drawer"
+     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
+    <div class="drawer-content">
+        <div class="drawer-menu">
+            <a class="a-block drawer-menu-item false" href="http://medivhyang.com">
+                首页
+            </a>
+            
+            <a class="a-block drawer-menu-item active" href="/archives">
+                归档
+            </a>
+            
+
+            
+            
+            <a class="a-block drawer-menu-item false" href="/about/index.html">
+                关于
+            </a>
+            
+            <a class="a-block drawer-menu-item false" href="/links/index.html">
+                导航
+            </a>
+            
+            <a class="a-block drawer-menu-item false" href="/tags/index.html">
+                标签
+            </a>
+            
+            <a class="a-block drawer-menu-item false" href="/tools/index.html">
+                工具
+            </a>
+            
+
+            
+        </div>
+    </div>
+</div>
+<transition name="fade">
+    <div v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
+</transition>
+<nav ref="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
+    <div ref="navBackground" class="nav-background"></div>
+    <div class="container container-narrow nav-content">
+        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <a ref="navTitle" class="navbar-brand" href="/">
+            Medivh Yang 的博客
+        </a>
+    </div>
+</nav>
+
+
+<div ref="sideContainer" class="side-container">
+    <a class="a-block nav-head false" href="/">
+        <div class="nav-title">
+            Medivh Yang 的博客
+        </div>
+        <div class="nav-subtitle">
+            不撞南墙 怎知回头
+        </div>
+    </a>
+
+    <div class="nav-link-list">
+        
+        <a class="a-block no-tint nav-link-item active" href="/archives">
+            归档
+        </a>
+        
+
+        
+        
+        <a class="a-block nav-link-item false" href="/about/index.html">
+            关于
+        </a>
+        
+        <a class="a-block nav-link-item false" href="/links/index.html">
+            导航
+        </a>
+        
+        <a class="a-block nav-link-item false" href="/tags/index.html">
+            标签
+        </a>
+        
+        <a class="a-block nav-link-item false" href="/tools/index.html">
+            工具
+        </a>
+        
+
+        
+    </div>
+
+    
+    <div class="nav-footer">
+        Proudly published with Hexo<br>
+        
+        Theme <a href="https://github.com/medivhyang/hexo-theme-rhino/" target="_blank" rel="noreferrer noopener">Rhino</a> by <a href="https://medivhyang.com/" target="_blank" rel="noreferrer noopener">Medivh Yang</a><br>
+        
+        &copy; 2021 <a href="http://medivhyang.com">Medivh Yang 的博客</a>
+    </div>
+</div>
+<div ref="extraContainer" class="extra-container">
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top" :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+
+        
+        
+        <div class="pagination-indicator">
+            <span style="text-align: center">
+                2<br><div style="display: inline-block; transform: rotate(-28deg)">-</div><br>3
+            </span>
+        </div>
+        
+
+        
+        <a class="pagination-action" href="/archives/2021/">
+            <i class="material-icons pagination-action-icon">
+                chevron_left
+            </i>
+        </a>
+        
+
+        
+        <a class="pagination-action" href="/archives/2021/page/3/">
+            <i class="material-icons pagination-action-icon">
+                chevron_right
+            </i>
+        </a>
+        
+        
+    </div>
+</div>
+
+<div ref="streamContainer" class="stream-container">
+    <div class="post-list-container post-list-container-shadow">
+        
+        
+        <div class="post-item-wrapper post-item-wrapper-no-hover">
+            <div class="post-item post-item-no-gaps">
+                <div class="post-item-info-wrapper">
+                    <div class="post-item-title  post-item-title-small">
+                        
+                        <a href="/archives/2021/03">
+                            2021 / 03
+                        </a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <a href="/database/mysql/" class="a-block">
+            <div class="post-item-wrapper">
+                <div class="post-item post-item-no-gaps">
+                    <div class="post-item-info-wrapper">
+                        <div class="post-item-title">
+                            MySQL 简明教程
+                        </div>
+                        <div class="post-item-meta">
+                            2021-03-18
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        
+        
+
+        <a href="/git/" class="a-block">
+            <div class="post-item-wrapper">
+                <div class="post-item post-item-no-gaps">
+                    <div class="post-item-info-wrapper">
+                        <div class="post-item-title">
+                            Git 简明教程
+                        </div>
+                        <div class="post-item-meta">
+                            2021-03-12
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        
+        
+
+        <a href="/database/sqlite3-tools/" class="a-block">
+            <div class="post-item-wrapper">
+                <div class="post-item post-item-no-gaps">
+                    <div class="post-item-info-wrapper">
+                        <div class="post-item-title">
+                            SQLite3 命令行工具
+                        </div>
+                        <div class="post-item-meta">
+                            2021-03-11
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        
+        
+
+        <a href="/go/custom-sql-type/" class="a-block">
+            <div class="post-item-wrapper">
+                <div class="post-item post-item-no-gaps">
+                    <div class="post-item-info-wrapper">
+                        <div class="post-item-title">
+                            Go 语言自定义 SQL 类型
+                        </div>
+                        <div class="post-item-meta">
+                            2021-03-10
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        
+        
+
+        <a href="/invest/stock-opening-time/" class="a-block">
+            <div class="post-item-wrapper">
+                <div class="post-item post-item-no-gaps">
+                    <div class="post-item-info-wrapper">
+                        <div class="post-item-title">
+                            股票开盘时间
+                        </div>
+                        <div class="post-item-meta">
+                            2021-03-05
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        
+        
+
+        <a href="/software-design-principle/" class="a-block">
+            <div class="post-item-wrapper">
+                <div class="post-item post-item-no-gaps">
+                    <div class="post-item-info-wrapper">
+                        <div class="post-item-title">
+                            软件设计原则
+                        </div>
+                        <div class="post-item-meta">
+                            2021-03-03
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        
+        
+        <div class="post-item-wrapper post-item-wrapper-no-hover">
+            <div class="post-item post-item-no-gaps">
+                <div class="post-item-info-wrapper">
+                    <div class="post-item-title  post-item-title-small">
+                        
+                        <a href="/archives/2021/02">
+                            2021 / 02
+                        </a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <a href="/invest/10-times-stock-from-2011-to-2020/" class="a-block">
+            <div class="post-item-wrapper">
+                <div class="post-item post-item-no-gaps">
+                    <div class="post-item-info-wrapper">
+                        <div class="post-item-title">
+                            数据：2011-2020 年 10 倍 A 股名单
+                        </div>
+                        <div class="post-item-meta">
+                            2021-02-19
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        
+        
+
+        <a href="/invest/ganns-21-rules/" class="a-block">
+            <div class="post-item-wrapper">
+                <div class="post-item post-item-no-gaps">
+                    <div class="post-item-info-wrapper">
+                        <div class="post-item-title">
+                            江恩 21 条买卖法则
+                        </div>
+                        <div class="post-item-meta">
+                            2021-02-05
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        
+        
+
+        <a href="/vimrc/" class="a-block">
+            <div class="post-item-wrapper">
+                <div class="post-item post-item-no-gaps">
+                    <div class="post-item-info-wrapper">
+                        <div class="post-item-title">
+                            Vim 配置指南
+                        </div>
+                        <div class="post-item-meta">
+                            2021-02-04
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        
+        
+
+        <a href="/go/install/" class="a-block">
+            <div class="post-item-wrapper">
+                <div class="post-item post-item-no-gaps">
+                    <div class="post-item-info-wrapper">
+                        <div class="post-item-title">
+                            Go 语言安装指南
+                        </div>
+                        <div class="post-item-meta">
+                            2021-02-04
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        
+    </div>
+    
+<div class="pagination ">
+    
+    <a class="pagination-action" href="/archives/2021/" style="opacity: 1">
+        
+            <i class="material-icons pagination-action-icon">
+                chevron_left
+            </i>
+        </a>
+
+        <div class="pagination-indicator">
+            <span>2/3</span>
+        </div>
+
+        
+        <a class="pagination-action" href="/archives/2021/page/3/"
+           style="opacity: 1">
+            
+                <i class="material-icons pagination-action-icon">
+                    chevron_right
+                </i>
+            </a>
+</div>
+
+
+    <div class="single-column-footer">
+    Proudly published with Hexo<br>
+    
+    Theme <a href="https://github.com/medivhyang/hexo-theme-rhino/" target="_blank" rel="noreferrer noopener">Rhino</a> by <a href="https://medivhyang.com/" target="_blank" rel="noreferrer noopener">Medvih Yang</a><br>
+    
+    &copy; 2021 <a href="http://medivhyang.com">Medivh Yang 的博客</a>
+</div>
+</div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"
+        integrity="sha256-EGs9T1xMHdvM1geM8jPpoo8EZ1V1VRsmcJz8OByENLA=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+        integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"
+        integrity="sha256-FtWfRI+thWlNz2sB3SJbwKx5PgMyKIVgwHCTwa3biXc=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/smooth-scroll@14.2.1/dist/smooth-scroll.polyfills.min.js"
+        integrity="sha256-CI4Gq5E0io1Pv0xM3qPM+NUIOhbIBvC3GiN1Y4KhXpw=" crossorigin="anonymous"></script>
+<script src="/js/index.js?89316454"></script>
+
+</body>
+</html>

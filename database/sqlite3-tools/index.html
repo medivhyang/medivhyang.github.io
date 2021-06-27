@@ -1,0 +1,334 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>SQLite3 命令行工具 - Medivh Yang 的博客</title>
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="author" content="Medivh Yang">
+<meta name="description" content="SQLite3 命令行工具可以在终端执行所有常见的 SQL 操作，而且还可以执行导入导出数据等操作。">
+<meta name="keywords" content="">
+
+    <meta charset="utf-8">
+    <meta name="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="renderer" content="webkit">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/index.css?78576512">
+
+<script src="/js/load-css.js"></script>
+<script>
+    loadCSS("https://fonts.googleapis.com/css?family=Lora|Montserrat|Fira+Mono|Material+Icons");
+    (function (d) {
+        var config = {
+                kitId: 'dwg1tuc',
+                scriptTimeout: 3000,
+                async: true
+            },
+            h = d.documentElement, t = setTimeout(function () {
+                h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
+            }, config.scriptTimeout), tk = d.createElement("script"), f = false,
+            s = d.getElementsByTagName("script")[0], a;
+        h.className += " wf-loading";
+        tk.src = 'https://use.typekit.net/' + config.kitId + '.js';
+        tk.async = true;
+        tk.onload = tk.onreadystatechange = function () {
+            a = this.readyState;
+            if (f || a && a != "complete" && a != "loaded") return;
+            f = true;
+            clearTimeout(t);
+            try {
+                Typekit.load(config)
+            } catch (e) {
+            }
+        };
+        s.parentNode.insertBefore(tk, s)
+    })(document);
+</script>
+<noscript>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Lora|Montserrat|Anonymous+Pro:400|Material+Icons"/>
+</noscript>
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body>
+<div id="top"></div>
+<div id="app">
+<div class="single-column-drawer-container" ref="drawer"
+     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
+    <div class="drawer-content">
+        <div class="drawer-menu">
+            <a class="a-block drawer-menu-item false" href="http://medivhyang.com">
+                首页
+            </a>
+            
+            <a class="a-block drawer-menu-item false" href="/archives">
+                归档
+            </a>
+            
+
+            
+            
+            <a class="a-block drawer-menu-item false" href="/about/index.html">
+                关于
+            </a>
+            
+            <a class="a-block drawer-menu-item false" href="/links/index.html">
+                导航
+            </a>
+            
+            <a class="a-block drawer-menu-item false" href="/tags/index.html">
+                标签
+            </a>
+            
+            <a class="a-block drawer-menu-item false" href="/tools/index.html">
+                工具
+            </a>
+            
+
+            
+        </div>
+    </div>
+</div>
+<transition name="fade">
+    <div v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
+</transition>
+<nav ref="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
+    <div ref="navBackground" class="nav-background"></div>
+    <div class="container container-narrow nav-content">
+        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <a ref="navTitle" class="navbar-brand" href="/">
+            Medivh Yang 的博客
+        </a>
+    </div>
+</nav>
+
+
+<div ref="sideContainer" class="side-container">
+    <a class="a-block nav-head false" href="/">
+        <div class="nav-title">
+            Medivh Yang 的博客
+        </div>
+        <div class="nav-subtitle">
+            不撞南墙 怎知回头
+        </div>
+    </a>
+
+    <div class="nav-link-list">
+        
+        <a class="a-block no-tint nav-link-item false" href="/archives">
+            归档
+        </a>
+        
+
+        
+        
+        <a class="a-block nav-link-item false" href="/about/index.html">
+            关于
+        </a>
+        
+        <a class="a-block nav-link-item false" href="/links/index.html">
+            导航
+        </a>
+        
+        <a class="a-block nav-link-item false" href="/tags/index.html">
+            标签
+        </a>
+        
+        <a class="a-block nav-link-item false" href="/tools/index.html">
+            工具
+        </a>
+        
+
+        
+    </div>
+
+    
+    <div class="nav-footer">
+        Proudly published with Hexo<br>
+        
+        Theme <a href="https://github.com/medivhyang/hexo-theme-rhino/" target="_blank" rel="noreferrer noopener">Rhino</a> by <a href="https://medivhyang.com/" target="_blank" rel="noreferrer noopener">Medivh Yang</a><br>
+        
+        &copy; 2021 <a href="http://medivhyang.com">Medivh Yang 的博客</a>
+    </div>
+</div>
+<div ref="extraContainer" class="extra-container">
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top" :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+
+        
+    </div>
+</div>
+
+
+
+<div ref="streamContainer" class="stream-container">
+    <div class="post-list-container post-list-container-shadow">
+        <div class="post">
+            <div class="post-head-wrapper-text-only"
+                 style="background-image: url('')">
+                <div class="post-title">
+                    SQLite3 命令行工具
+                    <div class="post-meta">
+                        <time datetime="2021-03-11T03:31:32.000Z" itemprop="datePublished">
+                            2021-03-11 11:31
+                        </time>&nbsp;
+                        
+    
+                        
+                        
+                        <i class="material-icons" style="">label</i>
+                        
+                        <a href='/tags/数据库/'>数据库</a>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+    
+            <div class="post-body-wrapper">
+                <div class="post-body">
+                    <blockquote>
+<p>SQLite3 命令行工具可以在终端执行所有常见的 SQL 操作，而且还可以执行导入导出数据等操作。</p>
+</blockquote>
+<h2><span id="下载安装">下载安装</span></h2><p><a target="_blank" rel="noopener" href="https://www.sqlite.org/download.html">https://www.sqlite.org/download.html</a></p>
+<p>Linux 安装：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">tar</span> xvzf sqlite-autoconf-3071502.tar.gz
+<span class="token builtin class-name">cd</span> sqlite-autoconf-3071502
+./configure --prefix<span class="token operator">=</span>/usr/local
+<span class="token function">make</span>
+<span class="token function">make</span> <span class="token function">install</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2><span id="常见用法">常见用法</span></h2><p>以 Windows 为例，Linux 类同。</p>
+<p>查看帮助文档</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">.<span class="token punctuation">\</span>sqlite3.exe -help<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>打开数据库文件</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">.<span class="token punctuation">\</span>sqlite3.exe .<span class="token punctuation">\</span>data.db<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>查看交互帮助文档</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sqlite<span class="token operator">></span> .help<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>查询数据</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sqlite<span class="token operator">></span> <span class="token keyword">select</span> * from foo<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2><span id="常见交互命令">常见交互命令</span></h2><table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">.exit</td>
+<td align="left">.quit</td>
+</tr>
+<tr>
+<td align="center">.show</td>
+<td align="left">显示各种设置的当前值。</td>
+</tr>
+<tr>
+<td align="center">.databases</td>
+<td align="left">列出数据库的名称及其所依附的文件。</td>
+</tr>
+<tr>
+<td align="center">.tables ?PATTERN?</td>
+<td align="left">列出匹配 LIKE 模式的表的名称。</td>
+</tr>
+<tr>
+<td align="center">.schema ?TABLE?</td>
+<td align="left">显示 CREATE 语句。如果指定了 TABLE 表，则只显示匹配 LIKE 模式的 TABLE 表。</td>
+</tr>
+<tr>
+<td align="center">.indices ?TABLE?</td>
+<td align="left">显示所有索引的名称。如果指定了 TABLE 表，则只显示匹配 LIKE 模式的 TABLE 表的索引。</td>
+</tr>
+<tr>
+<td align="center">.mode MODE</td>
+<td align="left">设置输出模式，MODE 可以是下列之一：<br>csv：逗号分隔的值<br>column：左对齐的列<br>html：HTML 的 &lt;table&gt; 代码<br>insert：TABLE 表的 SQL 插入（insert）语句<br>line：每行一个值<br>list：由 .separator 字符串分隔的值<br> tabs：由 Tab 分隔的值<br>tcl：TCL 列表元素接口</td>
+</tr>
+<tr>
+<td align="center">.output FILENAME</td>
+<td align="left">发送输出到 FILENAME 文件。</td>
+</tr>
+<tr>
+<td align="center">.output stdout</td>
+<td align="left">发送输出到屏幕。</td>
+</tr>
+<tr>
+<td align="center">.read FILENAME</td>
+<td align="left">执行 FILENAME 文件中的 SQL。</td>
+</tr>
+<tr>
+<td align="center">.separator STRING</td>
+<td align="left">改变输出模式和 .import 所使用的分隔符。</td>
+</tr>
+<tr>
+<td align="center">.nullvalue STRING</td>
+<td align="left">在 NULL 值的地方输出 STRING 字符串。</td>
+</tr>
+</tbody></table>
+<h2><span id="参考链接">参考链接</span></h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.runoob.com/sqlite/sqlite-commands.html">SQLite 命令 - 菜鸟教程</a></li>
+</ul>
+
+                </div>
+            </div>
+    
+            <nav class="post-pagination">
+    
+    <a class="newer-posts" href="/git/">
+        上一篇<br>Git 简明教程
+    </a>
+    
+    <span class="page-number"></span>
+    
+    <a class="older-posts" href="/go/custom-sql-type/">
+        下一篇<br>Go 语言自定义 SQL 类型
+    </a>
+    
+</nav>
+
+    
+            
+
+
+        </div>
+    </div>
+    <div class="single-column-footer">
+    Proudly published with Hexo<br>
+    
+    Theme <a href="https://github.com/medivhyang/hexo-theme-rhino/" target="_blank" rel="noreferrer noopener">Rhino</a> by <a href="https://medivhyang.com/" target="_blank" rel="noreferrer noopener">Medvih Yang</a><br>
+    
+    &copy; 2021 <a href="http://medivhyang.com">Medivh Yang 的博客</a>
+</div>
+</div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"
+        integrity="sha256-EGs9T1xMHdvM1geM8jPpoo8EZ1V1VRsmcJz8OByENLA=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+        integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"
+        integrity="sha256-FtWfRI+thWlNz2sB3SJbwKx5PgMyKIVgwHCTwa3biXc=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/smooth-scroll@14.2.1/dist/smooth-scroll.polyfills.min.js"
+        integrity="sha256-CI4Gq5E0io1Pv0xM3qPM+NUIOhbIBvC3GiN1Y4KhXpw=" crossorigin="anonymous"></script>
+<script src="/js/index.js?63394644"></script>
+
+
+
+</body>
+</html>

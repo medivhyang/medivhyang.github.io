@@ -1,0 +1,323 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Vim 配置指南 - Medivh Yang 的博客</title>
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="author" content="Medivh Yang">
+<meta name="description" content="Vim 是一款高效率的文本编辑器，与 Emacs 并称两大神器。">
+<meta name="keywords" content="">
+
+    <meta charset="utf-8">
+    <meta name="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="renderer" content="webkit">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/index.css?12246500">
+
+<script src="/js/load-css.js"></script>
+<script>
+    loadCSS("https://fonts.googleapis.com/css?family=Lora|Montserrat|Fira+Mono|Material+Icons");
+    (function (d) {
+        var config = {
+                kitId: 'dwg1tuc',
+                scriptTimeout: 3000,
+                async: true
+            },
+            h = d.documentElement, t = setTimeout(function () {
+                h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
+            }, config.scriptTimeout), tk = d.createElement("script"), f = false,
+            s = d.getElementsByTagName("script")[0], a;
+        h.className += " wf-loading";
+        tk.src = 'https://use.typekit.net/' + config.kitId + '.js';
+        tk.async = true;
+        tk.onload = tk.onreadystatechange = function () {
+            a = this.readyState;
+            if (f || a && a != "complete" && a != "loaded") return;
+            f = true;
+            clearTimeout(t);
+            try {
+                Typekit.load(config)
+            } catch (e) {
+            }
+        };
+        s.parentNode.insertBefore(tk, s)
+    })(document);
+</script>
+<noscript>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Lora|Montserrat|Anonymous+Pro:400|Material+Icons"/>
+</noscript>
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body>
+<div id="top"></div>
+<div id="app">
+<div class="single-column-drawer-container" ref="drawer"
+     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
+    <div class="drawer-content">
+        <div class="drawer-menu">
+            <a class="a-block drawer-menu-item false" href="http://medivhyang.com">
+                首页
+            </a>
+            
+            <a class="a-block drawer-menu-item false" href="/archives">
+                归档
+            </a>
+            
+
+            
+            
+            <a class="a-block drawer-menu-item false" href="/about/index.html">
+                关于
+            </a>
+            
+            <a class="a-block drawer-menu-item false" href="/links/index.html">
+                导航
+            </a>
+            
+            <a class="a-block drawer-menu-item false" href="/tags/index.html">
+                标签
+            </a>
+            
+            <a class="a-block drawer-menu-item false" href="/tools/index.html">
+                工具
+            </a>
+            
+
+            
+        </div>
+    </div>
+</div>
+<transition name="fade">
+    <div v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
+</transition>
+<nav ref="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
+    <div ref="navBackground" class="nav-background"></div>
+    <div class="container container-narrow nav-content">
+        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <a ref="navTitle" class="navbar-brand" href="/">
+            Medivh Yang 的博客
+        </a>
+    </div>
+</nav>
+
+
+<div ref="sideContainer" class="side-container">
+    <a class="a-block nav-head false" href="/">
+        <div class="nav-title">
+            Medivh Yang 的博客
+        </div>
+        <div class="nav-subtitle">
+            不撞南墙 怎知回头
+        </div>
+    </a>
+
+    <div class="nav-link-list">
+        
+        <a class="a-block no-tint nav-link-item false" href="/archives">
+            归档
+        </a>
+        
+
+        
+        
+        <a class="a-block nav-link-item false" href="/about/index.html">
+            关于
+        </a>
+        
+        <a class="a-block nav-link-item false" href="/links/index.html">
+            导航
+        </a>
+        
+        <a class="a-block nav-link-item false" href="/tags/index.html">
+            标签
+        </a>
+        
+        <a class="a-block nav-link-item false" href="/tools/index.html">
+            工具
+        </a>
+        
+
+        
+    </div>
+
+    
+    <div class="nav-footer">
+        Proudly published with Hexo<br>
+        
+        Theme <a href="https://github.com/medivhyang/hexo-theme-rhino/" target="_blank" rel="noreferrer noopener">Rhino</a> by <a href="https://medivhyang.com/" target="_blank" rel="noreferrer noopener">Medivh Yang</a><br>
+        
+        &copy; 2021 <a href="http://medivhyang.com">Medivh Yang 的博客</a>
+    </div>
+</div>
+<div ref="extraContainer" class="extra-container">
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top" :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+
+        
+    </div>
+</div>
+
+
+
+<div ref="streamContainer" class="stream-container">
+    <div class="post-list-container post-list-container-shadow">
+        <div class="post">
+            <div class="post-head-wrapper-text-only"
+                 style="background-image: url('')">
+                <div class="post-title">
+                    Vim 配置指南
+                    <div class="post-meta">
+                        <time datetime="2021-02-04T07:53:34.000Z" itemprop="datePublished">
+                            2021-02-04 15:53
+                        </time>&nbsp;
+                        
+    
+                        
+                        
+                        <i class="material-icons" style="">label</i>
+                        
+                        <a href='/tags/工具/'>工具</a>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+    
+            <div class="post-body-wrapper">
+                <div class="post-body">
+                    <blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.vim.org/">Vim</a> 是一款高效率的文本编辑器，与 <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/emacs/2044183">Emacs</a> 并称两大神器。</p>
+</blockquote>
+<h2><span id="常用配置">常用配置</span></h2><p>不管是 Vim 本身还是插件，配置文件内容基本一致，无需改动。</p>
+<pre class="line-numbers language-vim" data-language="vim"><code class="language-vim"><span class="token comment">" 设置 jk 快键键</span>
+inoremap jk <span class="token operator">&lt;</span>ESC<span class="token operator">></span>
+
+<span class="token comment">" 设置配色方案</span>
+<span class="token keyword">colorscheme</span> murphy
+
+<span class="token comment">" 显示行号</span>
+<span class="token keyword">set</span> <span class="token keyword">nu</span>
+
+<span class="token comment">" 设置文件被改动时自动载入</span>
+<span class="token keyword">set</span> <span class="token builtin">autoread</span>
+
+<span class="token comment">" 自动缩进</span>
+<span class="token keyword">set</span> <span class="token builtin">autoindent</span>
+<span class="token keyword">set</span> <span class="token builtin">cindent</span>
+
+<span class="token comment">" 设置 Tab 键的宽度为 4</span>
+<span class="token keyword">set</span> <span class="token builtin">tabstop</span><span class="token operator">=</span><span class="token number">4</span>
+
+<span class="token comment">" 统一缩进为 4</span>
+<span class="token keyword">set</span> <span class="token builtin">softtabstop</span><span class="token operator">=</span><span class="token number">4</span>
+<span class="token keyword">set</span> <span class="token builtin">shiftwidth</span><span class="token operator">=</span><span class="token number">4</span>
+
+<span class="token comment">" 使用空格代替制表符</span>
+<span class="token keyword">set</span> <span class="token builtin">expandtab</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p><code>jk</code> 快捷键是作者的偏好，也有人选择 <code>jj</code>。</p>
+</blockquote>
+<h2><span id="vim">Vim</span></h2><p>Vim 同时支持 Linux 和 Windows 下的使用。</p>
+<p>Linux</p>
+<ul>
+<li>一般系统自带，如果没有，可以通过包管理安装。</li>
+<li>配置文件位置： <code>/etc/vim/vimrc</code> 、 <code>/etc/vimrc</code>  或者 <code>~/.vimrc</code>。</li>
+</ul>
+<p>Windows</p>
+<ul>
+<li>使用 GVim 软件，它是 Windows 下的 Vim 的图形界面版本。</li>
+<li>GVim 下载地址：<a target="_blank" rel="noopener" href="https://www.vim.org/download.php#pc">https://www.vim.org/download.php#pc</a></li>
+<li>配置文件位置：<code>%HOMEPATH%/_vimrc</code>。</li>
+</ul>
+<h2><span id="jetbrains">JetBrains</span></h2><p>JetBrains 全家桶通过安装插件 <a target="_blank" rel="noopener" href="http://plugins.jetbrains.com/plugin/164-ideavim">IdeaVim</a> 支持 Vim 编辑模式。</p>
+<p>安装完插件后，可增加如下文件修改配置： </p>
+<ul>
+<li>Linux： <code>~/.ideavimrc</code></li>
+<li>Windows： <code>%HOMEPATH%/_ideavimrc</code></li>
+</ul>
+<blockquote>
+<p>安装完插件或者修改配置后，记得重启 JetBrains 软件生效。</p>
+</blockquote>
+<h2><span id="vscode">VSCode</span></h2><p>VSCode 通过安装插件 <a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=vscodevim.vim">Vim</a> 支持 Vim 编辑模式。</p>
+<p>安装完成后，可在 <a target="_blank" rel="noopener" href="https://code.visualstudio.com/docs/getstarted/settings">setting.json</a> 文件中修改配置。例如，想要设立 <code>jk</code> 快捷键，则增加如下内容：</p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token property">"vim.insertModeKeyBindings"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token property">"before"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"j"</span><span class="token punctuation">,</span> <span class="token string">"k"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token property">"after"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"&lt;Esc>"</span><span class="token punctuation">]</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>安装完插件或者修改配置后，记得重启 VSCode 软件生效。</p>
+</blockquote>
+<h2><span id="chrome">Chrome</span></h2><p>尽管你可能不信，浏览器也可以在安装 <a target="_blank" rel="noopener" href="https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb">Vimium</a> 插件下支持 Vim 部分操作模式。</p>
+<p>安装完插件后，可以在页面中按 <code>?</code> 快捷键查看 Vim 所有快捷键列表。</p>
+<h2><span id="参考链接">参考链接</span></h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.vim.org/">Vim 官网</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2018/09/vimrc.html">阮一峰的网络日志：Vim 配置入门</a></li>
+</ul>
+
+                </div>
+            </div>
+    
+            <nav class="post-pagination">
+    
+    <a class="newer-posts" href="/invest/ganns-21-rules/">
+        上一篇<br>江恩 21 条买卖法则
+    </a>
+    
+    <span class="page-number"></span>
+    
+    <a class="older-posts" href="/go/install/">
+        下一篇<br>Go 语言安装指南
+    </a>
+    
+</nav>
+
+    
+            
+
+
+        </div>
+    </div>
+    <div class="single-column-footer">
+    Proudly published with Hexo<br>
+    
+    Theme <a href="https://github.com/medivhyang/hexo-theme-rhino/" target="_blank" rel="noreferrer noopener">Rhino</a> by <a href="https://medivhyang.com/" target="_blank" rel="noreferrer noopener">Medvih Yang</a><br>
+    
+    &copy; 2021 <a href="http://medivhyang.com">Medivh Yang 的博客</a>
+</div>
+</div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"
+        integrity="sha256-EGs9T1xMHdvM1geM8jPpoo8EZ1V1VRsmcJz8OByENLA=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+        integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"
+        integrity="sha256-FtWfRI+thWlNz2sB3SJbwKx5PgMyKIVgwHCTwa3biXc=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/smooth-scroll@14.2.1/dist/smooth-scroll.polyfills.min.js"
+        integrity="sha256-CI4Gq5E0io1Pv0xM3qPM+NUIOhbIBvC3GiN1Y4KhXpw=" crossorigin="anonymous"></script>
+<script src="/js/index.js?95994926"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,444 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Curl 使用指南 - Medivh Yang 的博客</title>
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="author" content="Medivh Yang">
+<meta name="description" content="curl 是常用的命令行工具，用来请求 Web 服务器，它的名字就是客户端（client）的 URL 工具的意思。">
+<meta name="keywords" content="">
+
+    <meta charset="utf-8">
+    <meta name="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="renderer" content="webkit">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/index.css?33630053">
+
+<script src="/js/load-css.js"></script>
+<script>
+    loadCSS("https://fonts.googleapis.com/css?family=Lora|Montserrat|Fira+Mono|Material+Icons");
+    (function (d) {
+        var config = {
+                kitId: 'dwg1tuc',
+                scriptTimeout: 3000,
+                async: true
+            },
+            h = d.documentElement, t = setTimeout(function () {
+                h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
+            }, config.scriptTimeout), tk = d.createElement("script"), f = false,
+            s = d.getElementsByTagName("script")[0], a;
+        h.className += " wf-loading";
+        tk.src = 'https://use.typekit.net/' + config.kitId + '.js';
+        tk.async = true;
+        tk.onload = tk.onreadystatechange = function () {
+            a = this.readyState;
+            if (f || a && a != "complete" && a != "loaded") return;
+            f = true;
+            clearTimeout(t);
+            try {
+                Typekit.load(config)
+            } catch (e) {
+            }
+        };
+        s.parentNode.insertBefore(tk, s)
+    })(document);
+</script>
+<noscript>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Lora|Montserrat|Anonymous+Pro:400|Material+Icons"/>
+</noscript>
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body>
+<div id="top"></div>
+<div id="app">
+<div class="single-column-drawer-container" ref="drawer"
+     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
+    <div class="drawer-content">
+        <div class="drawer-menu">
+            <a class="a-block drawer-menu-item false" href="http://medivhyang.com">
+                首页
+            </a>
+            
+            <a class="a-block drawer-menu-item false" href="/archives">
+                归档
+            </a>
+            
+
+            
+            
+            <a class="a-block drawer-menu-item false" href="/about/index.html">
+                关于
+            </a>
+            
+            <a class="a-block drawer-menu-item false" href="/links/index.html">
+                导航
+            </a>
+            
+            <a class="a-block drawer-menu-item false" href="/tags/index.html">
+                标签
+            </a>
+            
+            <a class="a-block drawer-menu-item false" href="/tools/index.html">
+                工具
+            </a>
+            
+
+            
+        </div>
+    </div>
+</div>
+<transition name="fade">
+    <div v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
+</transition>
+<nav ref="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
+    <div ref="navBackground" class="nav-background"></div>
+    <div class="container container-narrow nav-content">
+        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <a ref="navTitle" class="navbar-brand" href="/">
+            Medivh Yang 的博客
+        </a>
+    </div>
+</nav>
+
+
+<div ref="sideContainer" class="side-container">
+    <a class="a-block nav-head false" href="/">
+        <div class="nav-title">
+            Medivh Yang 的博客
+        </div>
+        <div class="nav-subtitle">
+            不撞南墙 怎知回头
+        </div>
+    </a>
+
+    <div class="nav-link-list">
+        
+        <a class="a-block no-tint nav-link-item false" href="/archives">
+            归档
+        </a>
+        
+
+        
+        
+        <a class="a-block nav-link-item false" href="/about/index.html">
+            关于
+        </a>
+        
+        <a class="a-block nav-link-item false" href="/links/index.html">
+            导航
+        </a>
+        
+        <a class="a-block nav-link-item false" href="/tags/index.html">
+            标签
+        </a>
+        
+        <a class="a-block nav-link-item false" href="/tools/index.html">
+            工具
+        </a>
+        
+
+        
+    </div>
+
+    
+    <div class="nav-footer">
+        Proudly published with Hexo<br>
+        
+        Theme <a href="https://github.com/medivhyang/hexo-theme-rhino/" target="_blank" rel="noreferrer noopener">Rhino</a> by <a href="https://medivhyang.com/" target="_blank" rel="noreferrer noopener">Medivh Yang</a><br>
+        
+        &copy; 2021 <a href="http://medivhyang.com">Medivh Yang 的博客</a>
+    </div>
+</div>
+<div ref="extraContainer" class="extra-container">
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top" :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+
+        
+    </div>
+</div>
+
+
+
+<div ref="streamContainer" class="stream-container">
+    <div class="post-list-container post-list-container-shadow">
+        <div class="post">
+            <div class="post-head-wrapper-text-only"
+                 style="background-image: url('')">
+                <div class="post-title">
+                    Curl 使用指南
+                    <div class="post-meta">
+                        <time datetime="2021-04-14T09:52:24.000Z" itemprop="datePublished">
+                            2021-04-14 17:52
+                        </time>&nbsp;
+                        
+    
+                        
+                        
+                        <i class="material-icons" style="">label</i>
+                        
+                        <a href='/tags/工具/'>工具</a>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+    
+            <div class="post-body-wrapper">
+                <div class="post-body">
+                    <p>curl 是常用的命令行工具，用来请求 Web 服务器，它的名字就是客户端（client）的 URL 工具的意思。</p>
+<h2><span id="参数">参数</span></h2><table>
+<thead>
+<tr>
+<th>选项</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-A, –user-agent <name></name></td>
+<td>设置 user agent</td>
+</tr>
+<tr>
+<td>-b, –cookie &lt;data|filename&gt;</td>
+<td>添加 cookie</td>
+</tr>
+<tr>
+<td>-c, –cookie-jar <filename></filename></td>
+<td>将服务端 cookies 写入文件</td>
+</tr>
+<tr>
+<td>-d, –data <data></data></td>
+<td>HTTP POST 数据</td>
+</tr>
+<tr>
+<td>–data-urlencode <data></data></td>
+<td>等同于 <code>-d</code>，区别在于会自动将发送的数据进行 URL 编码</td>
+</tr>
+<tr>
+<td>-e –referer <url></url></td>
+<td>设置请求来源，既标头 <code>Referer</code></td>
+</tr>
+<tr>
+<td>-F, –form &lt;name=content&gt;</td>
+<td>上传 multipart MIME 数据</td>
+</tr>
+<tr>
+<td>-H, –header &lt;header/@file&gt;</td>
+<td>添加头部</td>
+</tr>
+<tr>
+<td>-i, –include</td>
+<td>同时显示 HTTP 响应头部信息</td>
+</tr>
+<tr>
+<td>-I, –head</td>
+<td>只显示 HTTP 响应头部信息</td>
+</tr>
+<tr>
+<td>-L, –location</td>
+<td>自动跳转</td>
+</tr>
+<tr>
+<td>-o, –output <file></file></td>
+<td>小写 o，另存为指定文件名</td>
+</tr>
+<tr>
+<td>-O, –remote-name</td>
+<td>大写 O，另存为服务文件名</td>
+</tr>
+<tr>
+<td>-u, –user <a href="user:password">user:password</a></td>
+<td>设置 HTTP 用户密码</td>
+</tr>
+<tr>
+<td>-v, –verbose</td>
+<td>显示通信详情信息</td>
+</tr>
+<tr>
+<td>-V, –version</td>
+<td>打印版本号</td>
+</tr>
+<tr>
+<td>-X, –request <command></td>
+<td>指定 HTTP 动词</td>
+</tr>
+</tbody></table>
+<h2><span id="示例">示例</span></h2><h3><span id="-a-user-agent">-A, –user-agent</span></h3><p><code>-A</code> 参数指定客户端的用户代理标头，即 <code>User-Agent</code>。curl 的默认用户代理字符串是 <code>curl/[version]</code>。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> -A <span class="token string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36'</span> https://google.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>也可以通过 <code>-H</code> 参数直接指定标头，更改 <code>User-Agent</code> 。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> -H <span class="token string">'User-Agent: php/1.0'</span> https://google.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<h3><span id="-b-cookie">-b, –cookie</span></h3><p><code>-b</code> 参数用来向服务器发送 cookies。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> -b <span class="token string">'foo1=bar1;foo2=bar2'</span> https://google.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>上面命令会生成一个请求头<code>Cookie: foo1=bar1;foo2=bar2</code>。</p>
+<p>读取 Cookie 文件。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> -b cookies.txt https://www.google.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<h3><span id="-c-cookie-jar">-c, –cookie-jar</span></h3><p>将服务端 cookies 写入文件。</p>
+<pre class="line-numbers language-none"><code class="language-none">curl -c cookies.txt https:&#x2F;&#x2F;www.google.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<h3><span id="-d-data">-d, –data</span></h3><p><code>-d</code> 参数用于发送 POST 请求的数据体。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> -d <span class="token string">'login=emma&amp;password=123'</span> -X POST https://google.com/login<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>-d 参数可以读取本地文本文件的数据，向服务器发送。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> -d <span class="token string">'@data.txt'</span> https://google.com/login<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>上面命令读取  <code>data.txt</code> 文件的内容，作为数据体向服务器发送。</p>
+<h3><span id="data-urlencode">–data-urlencode</span></h3><p><code>--data-urlencode</code> 参数等同于 <code>-d</code>，发送 POST 请求的数据体，区别在于会自动将发送的数据进行 URL 编码。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> --data-urlencode <span class="token string">'comment=hello world'</span> https://google.com/login<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>上面代码中，发送的数据 <code>hello world</code> 之间有一个空格，需要进行 URL 编码。</p>
+<h3><span id="-e-referer">-e, –referer</span></h3><p><code>-e</code> 参数用来设置 HTTP 的标头 <code>Referer</code>，表示请求的来源。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> -e <span class="token string">'https://google.com?q=example'</span> https://www.example.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>上面命令将 <code>Referer</code> 标头设为 <code>https://google.com?q=example</code>。</p>
+<p><code>-H</code> 参数可以通过直接添加标头 <code>Referer</code>，达到同样效果。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> -H <span class="token string">'Referer: https://google.com?q=example'</span> https://www.example.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<h3><span id="-f-form">-F, –form</span></h3><p><code>-F</code> 参数用来向服务器上传二进制文件。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> -F <span class="token string">'file=@photo.png'</span> https://google.com/profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>上面命令会给 HTTP 请求加上标头 <code>Content-Type: multipart/form-data</code>，然后将文件 <code>photo.png</code> 作为 <code>file</code> 字段上传。</p>
+<p><code>-F</code> 参数可以指定 MIME 类型。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> -F <span class="token string">'file=@photo.png;type=image/png'</span> https://google.com/profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>上面命令指定 MIME 类型为 <code>image/png</code>，否则 curl 会把 MIME 类型设为 <code>application/octet-stream</code>。</p>
+<p><code>-F</code> 参数也可以指定文件名。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> -F <span class="token string">'file=@photo.png;filename=foo.png'</span> https://google.com/profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>上面命令中，原始文件名为 <code>photo.png</code>，但是服务器接收到的文件名为 <code>foo.png</code>。</p>
+<h3><span id="-h-header">-H, –header</span></h3><p><code>-H</code> 参数添加 HTTP 请求的标头。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> -H <span class="token string">'Accept-Language: en-US'</span> https://google.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>上面命令添加 HTTP 标头 <code>Accept-Language: en-US</code>。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> -H <span class="token string">'Accept-Language: en-US'</span> -H <span class="token string">'Secret-Message: hello'</span> https://google.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>上面命令添加两个 HTTP 标头。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> -d <span class="token string">'&#123;"login": "emma", "pass": "123"&#125;'</span> -H <span class="token string">'Content-Type: application/json'</span> https://google.com/login<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<p>上面命令添加 HTTP 请求的标头是 <code>Content-Type: application/json</code>，然后用 <code>-d</code> 参数发送 JSON 数据。</p>
+<h3><span id="-i-include">-i, –include</span></h3><p><code>-i</code> 参数打印出服务器回应的 HTTP 标头。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> -i https://www.example.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>上面命令收到服务器回应后，先输出服务器回应的标头，然后空一行，再输出网页的源码。</p>
+<h3><span id="-i-head">-I, –head</span></h3><p><code>-I</code> 参数向服务器发出 HEAD 请求，然会将服务器返回的 HTTP 标头打印出来。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> -I https://www.example.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>上面命令输出服务器对 HEAD 请求的回应。</p>
+<h3><span id="-l-location">-L, –location</span></h3><p><code>-L</code> 参数会让 HTTP 请求跟随服务器的重定向。curl 默认不跟随重定向。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> -L -d <span class="token string">'tweet=hi'</span> https://api.twitter.com/tweet<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<h3><span id="-o-output">-o, –output</span></h3><p><code>-o</code> 参数将服务器的回应保存成文件，等同于 <code>wget</code> 命令。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> -o example.html https://www.example.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>上面命令将 <code>www.example.com</code> 保存成 <code>example.html</code>。</p>
+<h3><span id="-o-remote-name">-O, –remote-name</span></h3><p><code>-O</code> 参数将服务器回应保存成文件，并将 URL 的最后部分当作文件名。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> -O https://www.example.com/foo/bar.html<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>上面命令将服务器回应保存成文件，文件名为 <code>bar.html</code>。</p>
+<h3><span id="-u-user">-u, –user</span></h3><p><code>-u</code> 参数用来设置服务器认证的用户名和密码。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> -u <span class="token string">'bob:12345'</span> https://google.com/login<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>上面命令设置用户名为 <code>bob</code> ，密码为 <code>12345</code> ，然后将其转为 HTTP 标头 <code>Authorization: Basic Ym9iOjEyMzQ1</code> 。</p>
+<p>curl 能够识别 URL 里面的用户名和密码。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> https://bob:12345@google.com/login<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>上面命令能够识别 URL 里面的用户名和密码，将其转为上个例子里面的 HTTP 标头。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> -u <span class="token string">'bob'</span> https://google.com/login<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>上面命令只设置了用户名，执行后，curl 会提示用户输入密码。</p>
+<h3><span id="-v-verbose">-v, –verbose</span></h3><p><code>-v</code> 参数输出通信的整个过程，用于调试。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> -v https://www.example.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><code>--trace</code> 参数也可以用于调试，还会输出原始的二进制数据。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> --trace - https://www.example.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<h3><span id="-v-version">-V, –version</span></h3><p>打印版本号。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> -V<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<h3><span id="-x-request">-X, –request</span></h3><p><code>-X</code> 参数指定 HTTP 请求的方法。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> -X POST https://www.example.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>上面命令对 <code>https://www.example.com</code> 发出 POST 请求。</p>
+<p>其中 <code>-X</code> 还可以跟 <code>PUT</code>、<code>PATCH</code> 和 <code>DELETE</code>。</p>
+<pre class="line-numbers language-none"><code class="language-none">curl -X DELETE https:&#x2F;&#x2F;www.example.com&#x2F;1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2><span id="参考链接">参考链接</span></h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/guixiaoming/p/8507268.html">curl 命令详解~~ - 微风伏面 - 博客园</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2019/09/curl-reference.html">curl 的用法指南 - 阮一峰的网络日志</a></li>
+<li><a target="_blank" rel="noopener" href="https://curl.se/docs/manual.html">curl - Tutorial</a></li>
+<li><a target="_blank" rel="noopener" href="https://catonmat.net/cookbooks/curl">Curl Cookbook</a></li>
+</ul>
+
+                </div>
+            </div>
+    
+            <nav class="post-pagination">
+    
+    <a class="newer-posts" href="/go/context-key/">
+        上一篇<br>Go 语言 Context Key 定义
+    </a>
+    
+    <span class="page-number"></span>
+    
+    <a class="older-posts" href="/git-commit-message/">
+        下一篇<br>Git Commit Message 规范
+    </a>
+    
+</nav>
+
+    
+            
+
+
+        </div>
+    </div>
+    <div class="single-column-footer">
+    Proudly published with Hexo<br>
+    
+    Theme <a href="https://github.com/medivhyang/hexo-theme-rhino/" target="_blank" rel="noreferrer noopener">Rhino</a> by <a href="https://medivhyang.com/" target="_blank" rel="noreferrer noopener">Medvih Yang</a><br>
+    
+    &copy; 2021 <a href="http://medivhyang.com">Medivh Yang 的博客</a>
+</div>
+</div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"
+        integrity="sha256-EGs9T1xMHdvM1geM8jPpoo8EZ1V1VRsmcJz8OByENLA=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+        integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"
+        integrity="sha256-FtWfRI+thWlNz2sB3SJbwKx5PgMyKIVgwHCTwa3biXc=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/smooth-scroll@14.2.1/dist/smooth-scroll.polyfills.min.js"
+        integrity="sha256-CI4Gq5E0io1Pv0xM3qPM+NUIOhbIBvC3GiN1Y4KhXpw=" crossorigin="anonymous"></script>
+<script src="/js/index.js?97298364"></script>
+
+
+
+</body>
+</html>

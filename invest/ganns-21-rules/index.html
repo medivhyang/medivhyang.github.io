@@ -1,0 +1,379 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>江恩 21 条买卖法则 - Medivh Yang 的博客</title>
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="author" content="Medivh Yang">
+<meta name="description" content="江恩认为，进行交易必须根据一套既定的交易规则去操作，而不能随意地买卖，盲目地猜测市场的发展情况。">
+<meta name="keywords" content="">
+
+    <meta charset="utf-8">
+    <meta name="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="renderer" content="webkit">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/index.css?1707936">
+
+<script src="/js/load-css.js"></script>
+<script>
+    loadCSS("https://fonts.googleapis.com/css?family=Lora|Montserrat|Fira+Mono|Material+Icons");
+    (function (d) {
+        var config = {
+                kitId: 'dwg1tuc',
+                scriptTimeout: 3000,
+                async: true
+            },
+            h = d.documentElement, t = setTimeout(function () {
+                h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
+            }, config.scriptTimeout), tk = d.createElement("script"), f = false,
+            s = d.getElementsByTagName("script")[0], a;
+        h.className += " wf-loading";
+        tk.src = 'https://use.typekit.net/' + config.kitId + '.js';
+        tk.async = true;
+        tk.onload = tk.onreadystatechange = function () {
+            a = this.readyState;
+            if (f || a && a != "complete" && a != "loaded") return;
+            f = true;
+            clearTimeout(t);
+            try {
+                Typekit.load(config)
+            } catch (e) {
+            }
+        };
+        s.parentNode.insertBefore(tk, s)
+    })(document);
+</script>
+<noscript>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Lora|Montserrat|Anonymous+Pro:400|Material+Icons"/>
+</noscript>
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body>
+<div id="top"></div>
+<div id="app">
+<div class="single-column-drawer-container" ref="drawer"
+     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
+    <div class="drawer-content">
+        <div class="drawer-menu">
+            <a class="a-block drawer-menu-item false" href="http://medivhyang.com">
+                首页
+            </a>
+            
+            <a class="a-block drawer-menu-item false" href="/archives">
+                归档
+            </a>
+            
+
+            
+            
+            <a class="a-block drawer-menu-item false" href="/about/index.html">
+                关于
+            </a>
+            
+            <a class="a-block drawer-menu-item false" href="/links/index.html">
+                导航
+            </a>
+            
+            <a class="a-block drawer-menu-item false" href="/tags/index.html">
+                标签
+            </a>
+            
+            <a class="a-block drawer-menu-item false" href="/tools/index.html">
+                工具
+            </a>
+            
+
+            
+        </div>
+    </div>
+</div>
+<transition name="fade">
+    <div v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
+</transition>
+<nav ref="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
+    <div ref="navBackground" class="nav-background"></div>
+    <div class="container container-narrow nav-content">
+        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <a ref="navTitle" class="navbar-brand" href="/">
+            Medivh Yang 的博客
+        </a>
+    </div>
+</nav>
+
+
+<div ref="sideContainer" class="side-container">
+    <a class="a-block nav-head false" href="/">
+        <div class="nav-title">
+            Medivh Yang 的博客
+        </div>
+        <div class="nav-subtitle">
+            不撞南墙 怎知回头
+        </div>
+    </a>
+
+    <div class="nav-link-list">
+        
+        <a class="a-block no-tint nav-link-item false" href="/archives">
+            归档
+        </a>
+        
+
+        
+        
+        <a class="a-block nav-link-item false" href="/about/index.html">
+            关于
+        </a>
+        
+        <a class="a-block nav-link-item false" href="/links/index.html">
+            导航
+        </a>
+        
+        <a class="a-block nav-link-item false" href="/tags/index.html">
+            标签
+        </a>
+        
+        <a class="a-block nav-link-item false" href="/tools/index.html">
+            工具
+        </a>
+        
+
+        
+    </div>
+
+    
+    <div class="nav-footer">
+        Proudly published with Hexo<br>
+        
+        Theme <a href="https://github.com/medivhyang/hexo-theme-rhino/" target="_blank" rel="noreferrer noopener">Rhino</a> by <a href="https://medivhyang.com/" target="_blank" rel="noreferrer noopener">Medivh Yang</a><br>
+        
+        &copy; 2021 <a href="http://medivhyang.com">Medivh Yang 的博客</a>
+    </div>
+</div>
+<div ref="extraContainer" class="extra-container">
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top" :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+
+        
+    </div>
+</div>
+
+
+
+<div ref="streamContainer" class="stream-container">
+    <div class="post-list-container post-list-container-shadow">
+        <div class="post">
+            <div class="post-head-wrapper-text-only"
+                 style="background-image: url('')">
+                <div class="post-title">
+                    江恩 21 条买卖法则
+                    <div class="post-meta">
+                        <time datetime="2021-02-05T02:54:39.000Z" itemprop="datePublished">
+                            2021-02-05 10:54
+                        </time>&nbsp;
+                        
+    
+                        
+                        
+                        <i class="material-icons" style="">label</i>
+                        
+                        <a href='/tags/投资/'>投资</a>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+    
+            <div class="post-body-wrapper">
+                <div class="post-body">
+                    <blockquote>
+<p>江恩认为，进行交易必须根据一套既定的交易规则去操作，而不能随意地买卖，盲目地猜测市场的发展情况。</p>
+</blockquote>
+<h2><span id="法则">法则</span></h2><p>1、每次入市买卖，损失不应超过资金的十分之一。</p>
+<blockquote>
+<p>分析：注意 “十分之一” 这个比例，多了本钱难以赚回来。</p>
+</blockquote>
+<br>
+
+<p>2、永远都设立止损位，减少买卖出错时可能造成的损失。</p>
+<blockquote>
+<p>分析：没有止损位意味着你的损失将没有下限，小心失控。</p>
+</blockquote>
+<br>
+
+<p>3、永不过量买卖。</p>
+<blockquote>
+<p>分析：市场不以个人的意志为转移，所以，即使你有很大的把握，也不要低估市场的无常。</p>
+</blockquote>
+<br>
+
+<p>4、永不让所持仓位转盈为亏。</p>
+<blockquote>
+<p>分析：顺势而为，及时根据变化调整自己的仓位，不要陷入被动境地。</p>
+</blockquote>
+<br>
+
+<p>5、永不逆市而为。市场趋势不明显时，宁可在场外观望。</p>
+<blockquote>
+<p>分析：趋势不明显时，买卖与赌博何异？</p>
+</blockquote>
+<br>
+
+<p>6、有怀疑，即平仓离场；入市时要坚决，犹豫不决时不要入市。</p>
+<blockquote>
+<p>分析：避免糊涂入场，损失难以控制。</p>
+</blockquote>
+<br>
+
+<p>7、只在活跃的市场买卖，买卖清淡时不宜操作。</p>
+<blockquote>
+<p>分析：只有活跃的市场才有足够的操作空间。</p>
+</blockquote>
+<br>
+
+<p>8、永不设定目标价位出入市，避免限价出入市，而只服从市场走势。</p>
+<blockquote>
+<p>分析：如果中长期持有，服从市场调剂可以较快入局出局；如果短期持有，可以适当投机。</p>
+</blockquote>
+<br>
+
+<p>9、如无适当理由，不将所持仓平盘，可用止赚位保障所得利润。</p>
+<blockquote>
+<p>分析：没有仓位就意味着没有下轮角逐的资格，可以兑现部分仓位收益，保留部分仓位博取更高收益。</p>
+</blockquote>
+<br>
+
+<p>10、在市场连战皆捷后，可将部分利润提取，以备急时之需。</p>
+<blockquote>
+<p>分析：任何时候 ALL IN 都是一种不负责任的高风险操作。</p>
+</blockquote>
+<br>
+
+<p>11、买股票切忌只望分红收息，赚市场差价第一。</p>
+<blockquote>
+<p>分析：如果你想博取高收益，分红不值得你驻足观望。</p>
+</blockquote>
+<br>
+
+<p>12、买卖遭损失时，切忌赌徒式加码，以谋求摊低成本。</p>
+<blockquote>
+<p>分析：想象沉没成本法则，冷静下来，坦诚接受自己的失败。</p>
+</blockquote>
+<br>
+
+<p>13、不要因为不耐烦而入市，也不要因为不耐烦而平仓。</p>
+<blockquote>
+<p>分析：买卖要理智，避免被自己的主观情绪干扰。</p>
+</blockquote>
+<br>
+
+<p>14、肯输不肯赢，切戒，赔多赚少的买卖不要做。</p>
+<blockquote>
+<p>分析：保持盈利的习惯。</p>
+</blockquote>
+<br>
+
+<p>15、入市时落下的止损位，不宜胡乱取消。</p>
+<blockquote>
+<p>分析：遵循严格的操作守则，就是给自己上保险。</p>
+</blockquote>
+<br>
+
+<p>16、做多错多，入市要等候机会，不宜买卖太密。</p>
+<blockquote>
+<p>分析：没有足够的信号不要买卖，还有，短期的行情很难有可持续性。</p>
+</blockquote>
+<br>
+
+<p>17、做多做空自如，不应只做单边。</p>
+<blockquote>
+<p>分析：顺势而为，如果市场空头强大，那么就做空，反之一样。</p>
+</blockquote>
+<br>
+
+<p>18、不要因为价位太低而吸纳，也不要因为价位太高而沽空。</p>
+<blockquote>
+<p>分析：没有明显的趋势，不要买卖。</p>
+</blockquote>
+<br>
+
+<p>19、永不对冲。</p>
+<blockquote>
+<p>分析：保持最大盈利，对冲意味着内耗。</p>
+</blockquote>
+<br>
+
+<p>20、尽量避免在不适当时搞金字塔加码。</p>
+<blockquote>
+<p>分析：如果时机不对，金字塔加码则反而造成亏损面的扩大。</p>
+</blockquote>
+<br>
+
+<p>21、如无适当理由，避免胡乱更改所持股票的买卖策略。</p>
+<blockquote>
+<p>分析：形成自己的交易体系，享受玩家应有的乐趣！</p>
+</blockquote>
+<h2><span id="小结">小结</span></h2><p>投资大方向是顺势而为，小方向则是根据信号思维，适时买卖。</p>
+
+                </div>
+            </div>
+    
+            <nav class="post-pagination">
+    
+    <a class="newer-posts" href="/invest/10-times-stock-from-2011-to-2020/">
+        上一篇<br>数据：2011-2020 年 10 倍 A 股名单
+    </a>
+    
+    <span class="page-number"></span>
+    
+    <a class="older-posts" href="/vimrc/">
+        下一篇<br>Vim 配置指南
+    </a>
+    
+</nav>
+
+    
+            
+
+
+        </div>
+    </div>
+    <div class="single-column-footer">
+    Proudly published with Hexo<br>
+    
+    Theme <a href="https://github.com/medivhyang/hexo-theme-rhino/" target="_blank" rel="noreferrer noopener">Rhino</a> by <a href="https://medivhyang.com/" target="_blank" rel="noreferrer noopener">Medvih Yang</a><br>
+    
+    &copy; 2021 <a href="http://medivhyang.com">Medivh Yang 的博客</a>
+</div>
+</div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"
+        integrity="sha256-EGs9T1xMHdvM1geM8jPpoo8EZ1V1VRsmcJz8OByENLA=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+        integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"
+        integrity="sha256-FtWfRI+thWlNz2sB3SJbwKx5PgMyKIVgwHCTwa3biXc=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/smooth-scroll@14.2.1/dist/smooth-scroll.polyfills.min.js"
+        integrity="sha256-CI4Gq5E0io1Pv0xM3qPM+NUIOhbIBvC3GiN1Y4KhXpw=" crossorigin="anonymous"></script>
+<script src="/js/index.js?96504687"></script>
+
+
+
+</body>
+</html>

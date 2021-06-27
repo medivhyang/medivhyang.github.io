@@ -1,0 +1,263 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>吸引子与对抗子 - Medivh Yang 的博客</title>
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="author" content="Medivh Yang">
+<meta name="description" content="吸引子与对抗子是尝试描述复杂世界的理想化模型。">
+<meta name="keywords" content="">
+
+    <meta charset="utf-8">
+    <meta name="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="renderer" content="webkit">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/index.css?47077886">
+
+<script src="/js/load-css.js"></script>
+<script>
+    loadCSS("https://fonts.googleapis.com/css?family=Lora|Montserrat|Fira+Mono|Material+Icons");
+    (function (d) {
+        var config = {
+                kitId: 'dwg1tuc',
+                scriptTimeout: 3000,
+                async: true
+            },
+            h = d.documentElement, t = setTimeout(function () {
+                h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
+            }, config.scriptTimeout), tk = d.createElement("script"), f = false,
+            s = d.getElementsByTagName("script")[0], a;
+        h.className += " wf-loading";
+        tk.src = 'https://use.typekit.net/' + config.kitId + '.js';
+        tk.async = true;
+        tk.onload = tk.onreadystatechange = function () {
+            a = this.readyState;
+            if (f || a && a != "complete" && a != "loaded") return;
+            f = true;
+            clearTimeout(t);
+            try {
+                Typekit.load(config)
+            } catch (e) {
+            }
+        };
+        s.parentNode.insertBefore(tk, s)
+    })(document);
+</script>
+<noscript>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Lora|Montserrat|Anonymous+Pro:400|Material+Icons"/>
+</noscript>
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body>
+<div id="top"></div>
+<div id="app">
+<div class="single-column-drawer-container" ref="drawer"
+     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
+    <div class="drawer-content">
+        <div class="drawer-menu">
+            <a class="a-block drawer-menu-item false" href="http://medivhyang.com">
+                首页
+            </a>
+            
+            <a class="a-block drawer-menu-item false" href="/archives">
+                归档
+            </a>
+            
+
+            
+            
+            <a class="a-block drawer-menu-item false" href="/about/index.html">
+                关于
+            </a>
+            
+            <a class="a-block drawer-menu-item false" href="/links/index.html">
+                导航
+            </a>
+            
+            <a class="a-block drawer-menu-item false" href="/tags/index.html">
+                标签
+            </a>
+            
+            <a class="a-block drawer-menu-item false" href="/tools/index.html">
+                工具
+            </a>
+            
+
+            
+        </div>
+    </div>
+</div>
+<transition name="fade">
+    <div v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
+</transition>
+<nav ref="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
+    <div ref="navBackground" class="nav-background"></div>
+    <div class="container container-narrow nav-content">
+        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <a ref="navTitle" class="navbar-brand" href="/">
+            Medivh Yang 的博客
+        </a>
+    </div>
+</nav>
+
+
+<div ref="sideContainer" class="side-container">
+    <a class="a-block nav-head false" href="/">
+        <div class="nav-title">
+            Medivh Yang 的博客
+        </div>
+        <div class="nav-subtitle">
+            不撞南墙 怎知回头
+        </div>
+    </a>
+
+    <div class="nav-link-list">
+        
+        <a class="a-block no-tint nav-link-item false" href="/archives">
+            归档
+        </a>
+        
+
+        
+        
+        <a class="a-block nav-link-item false" href="/about/index.html">
+            关于
+        </a>
+        
+        <a class="a-block nav-link-item false" href="/links/index.html">
+            导航
+        </a>
+        
+        <a class="a-block nav-link-item false" href="/tags/index.html">
+            标签
+        </a>
+        
+        <a class="a-block nav-link-item false" href="/tools/index.html">
+            工具
+        </a>
+        
+
+        
+    </div>
+
+    
+    <div class="nav-footer">
+        Proudly published with Hexo<br>
+        
+        Theme <a href="https://github.com/medivhyang/hexo-theme-rhino/" target="_blank" rel="noreferrer noopener">Rhino</a> by <a href="https://medivhyang.com/" target="_blank" rel="noreferrer noopener">Medivh Yang</a><br>
+        
+        &copy; 2021 <a href="http://medivhyang.com">Medivh Yang 的博客</a>
+    </div>
+</div>
+<div ref="extraContainer" class="extra-container">
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top" :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+
+        
+    </div>
+</div>
+
+
+
+<div ref="streamContainer" class="stream-container">
+    <div class="post-list-container post-list-container-shadow">
+        <div class="post">
+            <div class="post-head-wrapper-text-only"
+                 style="background-image: url('')">
+                <div class="post-title">
+                    吸引子与对抗子
+                    <div class="post-meta">
+                        <time datetime="2021-06-14T05:04:33.000Z" itemprop="datePublished">
+                            2021-06-14 13:04
+                        </time>&nbsp;
+                        
+    
+                        
+                        
+                        <i class="material-icons" style="">label</i>
+                        
+                        <a href='/tags/随想/'>随想</a>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+    
+            <div class="post-body-wrapper">
+                <div class="post-body">
+                    <blockquote>
+<p>质点就是有质量但不存在体积或形状的点，是物理学的一个理想化模型。类似，吸引子与对抗子是尝试描述复杂世界的理想化模型。</p>
+</blockquote>
+<h2><span id="吸引子">吸引子</span></h2><p>吸引子是趋于不变的东西。吸引子可以是客观规律，例如上抛物体通常会落下；可以是关键状态，例如水在零度以下通常会结冰；也可以是人们喜闻乐见的事物，例如爱情故事。吸引子的不变性体现在其可重复性，例如每次实验结果总是惊人的相似，这样的模式是容易利用的。</p>
+<p>吸引子的基本行为是吸引。吸引是把事物或别人的注意力引到自己方面来，目的是维持其存在。一轮漩涡需要吸引周围的水来维持形态，一则舆论需要吸引其他人的注意力来维持热度，一个人需要吸引其他异性来繁衍后代。没有吸引力，就似乎无法维持其存在，这时吸引子就会消失。历史总结的规律和常识因为长期对人有用，这才维持了它的存在性。</p>
+<h2><span id="对抗子">对抗子</span></h2><p>对抗子是趋于变化的东西。对抗子可以是相对的概念，例如真与假；可以是相反的状态，例如冷与热；可以是势均力敌的事物，例如股票多头与空头。对抗子的变化性体现在其对手的可反馈性，因为每次变化都有对手做审判，给予奖励或惩罚，促使自己推陈出新，从而引发新的变化。</p>
+<p>对抗子的基本行为是对抗。对抗是双方存在对立的关系，相持不下，目的是也是维持其存在。如果真不对抗假，则概念会消失；如果冷不对抗热，则温度无法调节；如果股票多头不对抗空头，则经济无法发展。对抗与竞争类似，但是不完全相同，竞争是为了有限资源而产生对立关系，而对抗除了对立关系，还可能有相互依存的关系。</p>
+<p>对抗子是一个整体。对抗子不是单指对抗中某一方势力，而是包括多方，例如真与假构成一个对抗子，而不是真与假互为对抗子。</p>
+<h2><span id="单调">单调</span></h2><p>吸引子趋于不变似乎是单调的，就好像世界只有白色，这时总有人站出来说，要是来点什么东西点缀一下就好了，无法忍受的乏味已经图穷匕见。可以想象一下你的情绪，如果你的一个愿望被满足了，你会很快乐，但只是暂时的，你很快就不会那么快乐，接着你有另一个更大的愿望，循环往复，没有止境。从一开始接触任何事物，我们就明白，我们会兴奋，我们会失望，但最终我们会趋于平静，无论是欲扬先抑还是意外惊喜，都无法改变最终结局。</p>
+<p>北园克卫写过一首诗，一个白方块，在其中，一个白方块，在其中，一个白方块，在其中，一个白方块，在其中。类比这单调的空间，吸引子的内涵也许就是强化。</p>
+<h2><span id="张力">张力</span></h2><p>张力，在哲学中表示矛盾或不相容，这与对抗子的内涵不谋而合。</p>
+<p>张力能激发变化。比较贴切的类比就是橡皮筋，只有适当的拉扯橡皮筋，即不松弛又不紧绷，才会有绝佳的弹性。我们可以继续延伸，探索更加实际的生活意义，例如维持一段关系，如果你过分高冷或者顺从都是短视的做法，全面的乏味很快就会到来，只有来回推拉，维持适当的张力，才能激发双方的想象力，注入新的变化和趣味。话又说回来，变化是未知的，为什么一定是利好的，如何微妙的引导变化，这又是另一门艺术。</p>
+<h2><span id="信息">信息</span></h2><p>信息是吸引子与对抗子共同运作的结果。如果没有有效差异化，也就没有任何信息可言，而吸引子与对抗子就是有效差异化的来源。例如计算机中的 0 和 1 构成对抗子，这些对抗子在简单规则的操作下可以表达足够复杂的信息。</p>
+<p>复杂信息由吸引子构成。没有重点的信息不能称之为信息，因为平均化是常态，信息必须异常才有意义，所以复杂信息通常有中心事物作引，而该中心事物就是吸引子。</p>
+<h2><span id="对手">对手</span></h2><p>吸引子是趋于不变，而对抗子是趋于变化，所以吸引子与对抗子本身构成对抗子，这说明宇宙并不是在唱独角戏，而是存在对手。</p>
+<h2><span id="小结">小结</span></h2><p>吸引子与对抗子是对抗复杂的基础构件。如果你想持续增长，那就找到有价值的吸引子，例如好的产品或服务。如果你想持续创新，那就构造均衡的对抗子，例如长期商业竞争。吸引子与对抗子的目的都是维持其存在，都是混沌世界涌现的有效差异化表达，至于是不是随机漫步，未知。</p>
+
+                </div>
+            </div>
+    
+            <nav class="post-pagination">
+    
+    <span class="page-number"></span>
+    
+    <a class="older-posts" href="/the-easiest-thing-in-programming/">
+        下一篇<br>编程中最简单的事
+    </a>
+    
+</nav>
+
+    
+            
+
+
+        </div>
+    </div>
+    <div class="single-column-footer">
+    Proudly published with Hexo<br>
+    
+    Theme <a href="https://github.com/medivhyang/hexo-theme-rhino/" target="_blank" rel="noreferrer noopener">Rhino</a> by <a href="https://medivhyang.com/" target="_blank" rel="noreferrer noopener">Medvih Yang</a><br>
+    
+    &copy; 2021 <a href="http://medivhyang.com">Medivh Yang 的博客</a>
+</div>
+</div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"
+        integrity="sha256-EGs9T1xMHdvM1geM8jPpoo8EZ1V1VRsmcJz8OByENLA=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+        integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"
+        integrity="sha256-FtWfRI+thWlNz2sB3SJbwKx5PgMyKIVgwHCTwa3biXc=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/smooth-scroll@14.2.1/dist/smooth-scroll.polyfills.min.js"
+        integrity="sha256-CI4Gq5E0io1Pv0xM3qPM+NUIOhbIBvC3GiN1Y4KhXpw=" crossorigin="anonymous"></script>
+<script src="/js/index.js?92588292"></script>
+
+
+
+</body>
+</html>
