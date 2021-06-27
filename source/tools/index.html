@@ -1,31 +1,71 @@
 ---
 title: 工具
+layout: false
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>工具 - Medivh Yang 的博客</title>
+    <style>
+        .tools-item { 
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        .tools-item:hover { 
+            box-shadow: 1px 2px 5px gray;
+        }
+        .tools-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 
 <body>
+    <a href="/">返回博客</a>
     <div id="tools-timestamp-convert" class="tools-item">
-        <h2 class="tools-title">时间戳转换</h2>
-        时间戳：<input type="number" id="tools-timestamp-convert-input" />
-        <input type="button" value="转换" id="tools-timestamp-convert-ok" />
-        <input type="text" id="tools-timestamp-convert-output" readonly />
+        <div class="tools-title">时间戳转换为字符串</div>
+        时间戳：<input type="number" id="tools-timestamp-convert-input-1" />
+        <input type="button" value="转换" id="tools-timestamp-convert-ok-1" placeholder="单位：秒"/>
+        <input type="text" id="tools-timestamp-convert-output-1" readonly />
+        <br /> <br />
+        <div class="tools-title">字符串转换为时间戳</div>
+        字符串：<input type="text" id="tools-timestamp-convert-input-2" />
+        <input type="button" value="转换" id="tools-timestamp-convert-ok-2" placeholder="单位：秒"/>
+        <input type="number" id="tools-timestamp-convert-output-2" readonly />
     </div>
-
     <script>
         function initToolsTimestampConvert() {
-            function convertTimestamp() {
-                const inputEl = document.getElementById("tools-timestamp-convert-input")
-                const outputEl = document.getElementById("tools-timestamp-convert-output")
-                outputEl.value = formatTime(new Date(parseInt(inputEl.value)), 'yy-MM-dd hh:mm:ss')
+            const timeLayout = 'yy-MM-dd hh:mm:ss'
+
+            // convert timestamp to str
+            document.getElementById("tools-timestamp-convert-ok-1").addEventListener("click", function (v) {
+                convertTimestampToStr()
+            }, true)
+
+            const inputEl1 = document.getElementById("tools-timestamp-convert-input-1")
+            inputEl1.value = Date.parse(new Date())
+            convertTimestampToStr()
+
+            // convert str to timestamp 
+            document.getElementById("tools-timestamp-convert-ok-2").addEventListener("click", function (v) {
+                convertStrToTimestamp()
+            }, true)
+            const inputEl2 = document.getElementById("tools-timestamp-convert-input-2")
+            inputEl2.value = formatTime(new Date(), timeLayout)
+            convertStrToTimestamp()
+
+            function convertTimestampToStr() {
+                const inputEl = document.getElementById("tools-timestamp-convert-input-1")
+                const outputEl = document.getElementById("tools-timestamp-convert-output-1")
+                outputEl.value = formatTime(new Date(parseInt(inputEl.value)), timeLayout)
             }
 
             function formatTime(t, fmt) {
@@ -48,9 +88,16 @@ title: 工具
                 return fmt;
             }
 
-            document.getElementById("tools-timestamp-convert-ok").addEventListener("click", function (v) {
-                convertTimestamp()
-            }, true)
+            function convertStrToTimestamp() {
+                const inputEl = document.getElementById("tools-timestamp-convert-input-2")
+                const outputEl = document.getElementById("tools-timestamp-convert-output-2")
+                outputEl.value = parseTime(inputEl.value)
+            }
+
+            function parseTime(s) {
+                s = s.replace(/-/g,'/')
+                return new Date(s).getTime()
+            }
         }
 
         window.onload = function () {
