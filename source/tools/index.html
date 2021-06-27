@@ -32,14 +32,14 @@ layout: false
     <a href="/">返回博客</a>
     <div id="tools-timestamp-convert" class="tools-item">
         <div class="tools-title">时间戳转换为字符串</div>
-        时间戳：<input type="number" id="tools-timestamp-convert-input-1" />
-        <input type="button" value="转换" id="tools-timestamp-convert-ok-1" placeholder="单位：秒"/>
-        <input type="text" id="tools-timestamp-convert-output-1" readonly />
+        时间戳：<input type="number" id="tools-timestamp-convert-input-1" placeholder="单位：秒" />
+        <input type="button" value="转换" id="tools-timestamp-convert-ok-1" />
+        <input type="text" id="tools-timestamp-convert-output-1"  readonly />
         <br /> <br />
         <div class="tools-title">字符串转换为时间戳</div>
         字符串：<input type="text" id="tools-timestamp-convert-input-2" />
-        <input type="button" value="转换" id="tools-timestamp-convert-ok-2" placeholder="单位：秒"/>
-        <input type="number" id="tools-timestamp-convert-output-2" readonly />
+        <input type="button" value="转换" id="tools-timestamp-convert-ok-2" />
+        <input type="number" id="tools-timestamp-convert-output-2" readonly/>
     </div>
     <script>
         function initToolsTimestampConvert() {
@@ -51,21 +51,13 @@ layout: false
             }, true)
 
             const inputEl1 = document.getElementById("tools-timestamp-convert-input-1")
-            inputEl1.value = Date.parse(new Date())
+            inputEl1.value = Date.parse(new Date()) / 1000
             convertTimestampToStr()
-
-            // convert str to timestamp 
-            document.getElementById("tools-timestamp-convert-ok-2").addEventListener("click", function (v) {
-                convertStrToTimestamp()
-            }, true)
-            const inputEl2 = document.getElementById("tools-timestamp-convert-input-2")
-            inputEl2.value = formatTime(new Date(), timeLayout)
-            convertStrToTimestamp()
 
             function convertTimestampToStr() {
                 const inputEl = document.getElementById("tools-timestamp-convert-input-1")
                 const outputEl = document.getElementById("tools-timestamp-convert-output-1")
-                outputEl.value = formatTime(new Date(parseInt(inputEl.value)), timeLayout)
+                outputEl.value = formatTime(new Date(parseInt(inputEl.value)*1000), timeLayout)
             }
 
             function formatTime(t, fmt) {
@@ -88,10 +80,18 @@ layout: false
                 return fmt;
             }
 
+            // convert str to timestamp 
+            document.getElementById("tools-timestamp-convert-ok-2").addEventListener("click", function (v) {
+                convertStrToTimestamp()
+            }, true)
+            const inputEl2 = document.getElementById("tools-timestamp-convert-input-2")
+            inputEl2.value = formatTime(new Date(), timeLayout)
+            convertStrToTimestamp()
+
             function convertStrToTimestamp() {
                 const inputEl = document.getElementById("tools-timestamp-convert-input-2")
                 const outputEl = document.getElementById("tools-timestamp-convert-output-2")
-                outputEl.value = parseTime(inputEl.value)
+                outputEl.value = parseTime(inputEl.value) / 1000
             }
 
             function parseTime(s) {
