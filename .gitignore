@@ -128,3 +128,8 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Custom
+.vitepress/cache
+.vitepress/dist
+**/**/.DS_Store
