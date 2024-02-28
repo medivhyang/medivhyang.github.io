@@ -4,7 +4,7 @@ layout: home
 hero:
   name: 树懒记账
   text: 管理资产和负债
-  tagline: 'App Store 编辑精选'
+  tagline: 'App Store 编辑推荐'
   image:
     src: /images/sloth-ledger.png
     alt: 树懒记账

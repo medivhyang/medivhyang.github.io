@@ -25,7 +25,7 @@ hero:
 
 features:
   - title: Sloth Ledger
-    details: Manage assets and liabilities
+    details: Manage assets and liabilities.
     icon: 
       src: /images/sloth-ledger.png
     link: ./projects/sloth-ledger/

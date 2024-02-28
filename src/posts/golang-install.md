@@ -34,7 +34,7 @@ go env -w GOPRIVATE="git.mycompany.com,github.com/my/private"
 ## 编辑器配置
 
 ```
-# 手动安装 ""
+# 手动安装 "github.com/golang/tools/cmd/goimports"
 cd $GOPATH/src
 git clone https://github.com/golang/tools.git github.com/golang/tools
 cd github.com/golang/tools/cmd/goimports

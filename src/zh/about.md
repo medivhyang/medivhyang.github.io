@@ -2,7 +2,7 @@
 
 ## 个人简介
 
-- 🧑🏻‍💻 Go 语言开发从业者 <Badge type="warning" text="求职中" />
+- 🧑‍💻 Go 语言开发从业者 <Badge type="warning" text="求职中" />
 - 📱 iOS 独立开发者
 - ✨ 设计爱好者
 - 🎨 最近在学习雕塑和绘画
