@@ -8,7 +8,7 @@ export default defineConfig({
   description: "Medivh Yang's Blog",
   srcDir: "./src",
   head: [["link", { rel: "icon", href: "/images/logo.jpeg" }]],
-
+  lastUpdated: true,
 
   themeConfig: {
     logo: "/images/logo.jpeg",
@@ -64,6 +64,9 @@ export default defineConfig({
       title: "麦迪文杨",
       description: "麦迪文杨的博客",
       themeConfig: {
+        lastUpdated: {
+          text: "最后更新于"
+        },
         nav: [
           { text: "主页", link: "/zh/" },
           { text: "项目", link: "/zh/projects/" },
