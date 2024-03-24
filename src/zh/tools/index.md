@@ -11,7 +11,7 @@ layout: doc
 - [Obsidian](https://obsidian.md/)：一款私密、灵活的写作应用程序，能适应你的思维方式。
 - [Irvue](https://apps.apple.com/cn/app/irvue/id1039633667)：将 Unsplash 中的数千张令人惊叹的高分辨率照片带到您的桌面上。使用这个位于菜单栏中的小应用程序每天享受新的艺术壁纸。
 - [Keka](https://www.keka.io/zh-cn/)：macOS 压缩文件管理器。
-- [沉浸式翻译](https://immersivetranslate.com/)：双语对照网页翻译插件。
+- [飞书](https://www.feishu.cn/)：个人版有笔记、待办和网盘功能，可以隐藏不需要的服务。
 
 ## 设计
 
