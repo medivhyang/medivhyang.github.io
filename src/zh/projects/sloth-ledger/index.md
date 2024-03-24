@@ -13,7 +13,7 @@ hero:
       text: 下载
       link: https://apps.apple.com/cn/app/%E6%A0%91%E6%87%92%E8%AE%B0%E8%B4%A6/id6462579155
     - theme: alt
-      text: 用户协议
+      text: 使用条款
       link: ./terms-of-use
     - theme: alt
       text: 隐私政策
