@@ -6,6 +6,8 @@ layout: doc
 
 ## iOS App
 
+  - [小鸟卡片](./bird-card/): 制作文字卡片。
+  - [鲸鱼书签](./whale-mark/): 纸质书的电子书签。
   - [树懒记账](./sloth-ledger/): 管理资产和负债。
   - [小鹿占卜](./deer-divination/): 拯救选择困难症。
   - [狐狸记价](./fox-price-memo/): 手动记录价格。

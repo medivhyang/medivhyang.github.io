@@ -7,7 +7,10 @@ export default defineConfig({
   title: "Medivh Yang",
   description: "Medivh Yang's Blog",
   srcDir: "./src",
-  head: [["link", { rel: "icon", href: "/images/logo.jpeg" }]],
+  head: [
+    ["link", { rel: "icon", href: "/images/logo.jpeg" }],
+    ['script', { async: '', src: '/scripts/confetti.browser.min.js' }],
+  ],
   lastUpdated: true,
 
   themeConfig: {

@@ -24,6 +24,16 @@ hero:
       link: /zh/about
 
 features:
+  - title: 小鸟卡片
+    details: 制作文字卡片。
+    icon: 
+      src: /images/bird-card.png
+    link: ./projects/bird-card/
+  - title: 鲸鱼书签
+    details: 纸质书的电子书签。
+    icon: 
+      src: /images/whale-mark.png
+    link: ./projects/whale-mark/
   - title: 树懒记账
     details: 管理资产和负债。
     icon: 

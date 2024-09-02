@@ -2,10 +2,9 @@
 
 ## Personal Profile
 
-- 🧑🏻‍💻 Go language development practitioner <Badge type="warning" text="In job hunting" />
-- 📱 iOS independent developer
-- ✨ Design enthusiast
-- 🎨 Recently I am learning sculpture and painting 
+- 📱 Independent Developer
+- 🐒 "Zookeeper"
+- ✨ Enjoys painting, playing the piano, and boxing.
 
 ## Product Philosophy
 
