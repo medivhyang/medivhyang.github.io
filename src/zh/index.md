@@ -4,7 +4,7 @@ layout: home
 
 hero:
   name: "麦迪文杨"
-  text: "设计, 开发, 运营"
+  text: "一个独立开发者"
   tagline: '我在设计中力求两件事：简单和清晰。伟大的设计源于这两件事。'
   image:
     src: /images/logo.jpeg
@@ -49,21 +49,16 @@ features:
     icon: 
       src: /images/fox-price-memo.png
     link: ./projects/fox-price-memo/
-  - title: REDESIGN 周刊
-    details: 分享每周值得分享的设计内容。
-    icon: 
-      src: /images/redesign-weekly.png
-    link: https://medivhyang.zhubai.love
 ---
 
 ## 联系我
 
 关注我获取最新消息。
 
-[Twitter](https://twitter.com/medivhyang)
-| [微博](https://weibo.com/medivhyang) 
-| [小红书](https://www.xiaohongshu.com/user/profile/5814865a50c4b4285fa57160) 
+[小红书](https://www.xiaohongshu.com/user/profile/5814865a50c4b4285fa57160) 
 | [即刻](https://okjk.co/5zTJcS)
+| [微博](https://weibo.com/medivhyang) 
+| [X](https://x.com/medivhyang)
 | [邮件 (medivhstation.163.com)](mailto:medivhstation.163.com)
 | <a href='javascript:void(0); navigator.clipboard.writeText("medivhy"); alert("Copy Success.");'>微信 (medivhy)</a>
 

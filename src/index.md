@@ -4,7 +4,7 @@ layout: home
 
 hero:
   name: "Medivh Yang"
-  text: "Design, Development, Operation"
+  text: "An Independent Developer"
   tagline: "I strive for two things in my design: <b>simplicity</b> and <b>clarity</b>. Great design comes from these two things."
   image:
     src: /images/logo.jpeg
@@ -49,21 +49,16 @@ features:
     icon:
       src: /images/fox-price-memo.png
     link: ./projects/fox-price-memo/
-  - title: REDESIGN Weekly
-    details: Share worthy design content each week.
-    icon:
-      src: /images/redesign-weekly.png
-    link: https://medivhyang.zhubai.love
 ---
 
 ## Contact Me
 
 Follow me and be the first to get updates.
 
-[Twitter](https://twitter.com/medivhyang)
-| [Weibo](https://weibo.com/medivhyang)
-| [Xiaohongshu](https://www.xiaohongshu.com/user/profile/5814865a50c4b4285fa57160)
+[Xiaohongshu](https://www.xiaohongshu.com/user/profile/5814865a50c4b4285fa57160)
 | [Jike](https://okjk.co/5zTJcS)
+| [Weibo](https://weibo.com/medivhyang)
+| [X](https://x.com/medivhyang)
 | [Mail (medivhstation.163.com)](mailto:medivhstation.163.com)
 | <a href='javascript:void(0); navigator.clipboard.writeText("medivhy"); alert("Copy Success.");'>WeChat (medivhy)</a>
 
